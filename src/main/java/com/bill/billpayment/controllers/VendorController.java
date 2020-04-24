@@ -71,7 +71,7 @@ model.addAttribute("message", "Invalid Password");
 	}
 }
 		}
-@GetMapping("/vendorregister")
+@GetMapping("/vendorregistration")
 public String userSignUp(Model model)
 {
 Vendor vendor = new Vendor();

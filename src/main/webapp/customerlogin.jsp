@@ -55,7 +55,7 @@ ${message }
 </form:form>
 
 
-New Customer<a href="/customer/register" style="color:yellow;"> SignUp</a>
+New Customer<a href="/customerregister" style="color:yellow;"> SignUp</a>
 </div>
 
 <a href="/">Home</a>

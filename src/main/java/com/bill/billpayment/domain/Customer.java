@@ -13,6 +13,12 @@ public class Customer
 	@Generated("assigned")
 	private String username;
 	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	@Column
 	private String firstname;
 	@Column
@@ -25,12 +31,7 @@ public class Customer
 	private String mobile;
 	@Column
 	private String gender;
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	
 	public String getFirstname() {
 		return firstname;
 	}

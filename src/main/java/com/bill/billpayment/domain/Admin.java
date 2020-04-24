@@ -13,10 +13,9 @@ public class Admin {
 
 	@Id
 	@Generated("assigned")
+	public String username;
 	@Column
-	public String firstname;
-	@Column
-	public String lastname;
+	public String name;
 	@Column
 	public String age;
 	@Column
@@ -31,43 +30,17 @@ public class Admin {
 	public String secretQuestion;
 	@Column
 	public String answer;
-	
-	public Admin(String firstname, String lastname, String age, String gender, String contactNumber, String adminId,
-			String password, String secretQuestion, String answer) {
-		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.age = age;
-		this.gender = gender;
-		this.contactNumber = contactNumber;
-		this.adminId = adminId;
-		this.password = password;
-		this.secretQuestion = secretQuestion;
-		this.answer = answer;
+	public String getUsername() {
+		return username;
 	}
-	public String getSecretQuestion() {
-		return secretQuestion;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public void setSecretQuestion(String secretQuestion) {
-		this.secretQuestion = secretQuestion;
+	public String getName() {
+		return name;
 	}
-	public String getAnswer() {
-		return answer;
-	}
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-	public String getFirstname() {
-		return firstname;
-	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-	public String getLastname() {
-		return lastname;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getAge() {
 		return age;
@@ -99,17 +72,23 @@ public class Admin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Admin() {
-		super();
+	public String getSecretQuestion() {
+		return secretQuestion;
+	}
+	public void setSecretQuestion(String secretQuestion) {
+		this.secretQuestion = secretQuestion;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 	@Override
 	public String toString() {
-		return "Admin [firstname=" + firstname + ", lastname=" + lastname + ", age=" + age + ", gender=" + gender
+		return "Admin [username=" + username + ", name=" + name + ", age=" + age + ", gender=" + gender
 				+ ", contactNumber=" + contactNumber + ", adminId=" + adminId + ", password=" + password
 				+ ", secretQuestion=" + secretQuestion + ", answer=" + answer + "]";
 	}
-	
-	
-	
 	
 }

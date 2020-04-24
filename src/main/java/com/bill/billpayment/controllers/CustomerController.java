@@ -54,7 +54,7 @@ public class CustomerController {
 	}
 	
 	
-	@GetMapping("/register")
+	@GetMapping("/customerregister")
 	public String customerRegisterForm(Model model)
 	{
 		Customer customer=new com.bill.billpayment.domain.Customer();

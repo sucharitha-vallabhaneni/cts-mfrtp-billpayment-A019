@@ -1,5 +1,7 @@
 package com.bill.billpayment.controllers;
 
+
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,47 +16,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bill.billpayment.bo.AdminServices;
 import com.bill.billpayment.domain.Admin;
-import com.bill.billpayment.domain.AdminLogin;
+
+import com.bill.billpayment.domain.Adminlogin;
 import com.bill.billpayment.domain.Vendor;
 @Controller
+@RequestMapping( "/")
+
 public class AdminController {
  
 	@Autowired
 	private AdminServices adminservice;
 	
-	@GetMapping(value="/admin")
-	public String adminLogin(Model model)
-	{
-	  Admin admin = new Admin();
-	  model.addAttribute("admin", admin);
-	  return "admin";
-	}
-	@PostMapping(value="/adminreg")
-	public String adminreg(@ModelAttribute("admin") Admin adminreg,Model model) {
-		int res=adminservice.createAdmin(adminreg);	
-		if(res==1) {
-			model.addAttribute("message","Your  are already registered.");
-			return "admin";
-		}else if(res==2) {
-			model.addAttribute("message","Your details are submitted successfully.");
-			return "admin";
-		}else {
-			model.addAttribute("message","Oops...Something went wrong.");
-			return "admin";
-		}
 		
-	}
-	@GetMapping(value="/adminlogin")
+	@GetMapping(value="/admin")
 	public String adminlogin(Model model) {
-		model.addAttribute("adminlogin", new AdminLogin());
+		model.addAttribute("admin", new Adminlogin());
 		return "adminlogin";
 	}
 	
-	@PostMapping(value="/loginverify")
-	public String loginverify(@ModelAttribute("adminlogin") AdminLogin adminlogin,Model model,HttpSession session) {
+	@PostMapping(value="/adminlogin")
+	public String loginverify(@ModelAttribute("admin") Adminlogin adminlogin,Model model,HttpSession session) {
 		boolean b1=adminservice.loginVerification(adminlogin);
 		if(b1){
-			session.setAttribute("name", adminlogin.getUserid());
+			session.setAttribute("name", adminlogin.getUsername());
 			return "adminportal";
 		}
 		model.addAttribute("message", "Invalid UserId or Password");

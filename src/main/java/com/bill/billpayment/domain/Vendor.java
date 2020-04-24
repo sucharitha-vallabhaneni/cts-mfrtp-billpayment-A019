@@ -18,6 +18,8 @@ public class Vendor
 	
 	@Column
 	private String companyname;
+	
+
 	@Column
 	private String lastname;
 	@Column
@@ -65,14 +67,13 @@ public class Vendor
 		this.username = username;
 	}
 
-	public String getCompanyname() {
-		return companyname;
-	}
+		public String getCompanyname() {
+			return companyname;
+		}
 
-	public void setCompanyname(String companyname) {
-		this.companyname = companyname;
-	}
-
+		public void setCompanyname(String companyname) {
+			this.companyname = companyname;
+		}
 	public String getLastname() {
 		return lastname;
 	}

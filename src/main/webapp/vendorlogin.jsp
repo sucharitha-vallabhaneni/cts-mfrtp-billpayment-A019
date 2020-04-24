@@ -54,7 +54,7 @@ ${message }
 </form:form>
 
 
-New Vendor?<a href="/vendor/register" style="color:yellow;"> SignUp</a>
+New Vendor?<a href="/vendorregistration" style="color:yellow;"> SignUp</a>
 </div>
 
 <a href="/">Home</a>

@@ -17,7 +17,7 @@
 <!-- Form  -->
 <div align="center">
 <div class="forms-data">
-<form:form action="/vendor/venregistration" method="post" modelAttribute="venreg" style="margin-top:50px;margin-left:30px;">
+<form:form action="/vendorregistration/venregistration" method="post" modelAttribute="venreg" style="margin-top:50px;margin-left:30px;">
 
 <table>
 <tr>
@@ -34,9 +34,9 @@
 <td>Company Name :</td>
 <td>
 
-<form:input path="firstname" class="form-control"/>
+<form:input path="companyname" class="form-control"/>
 <br>
- <form:errors path="firstname" cssClass="errors"></form:errors> 
+ <form:errors path="companyname" cssClass="errors"></form:errors> 
 </td>
 </tr>
 
@@ -44,9 +44,9 @@
 <td>Company reg.No:</td>
 <td>
 
-<form:input path="compnay regno" class="form-control"/>
+<form:input path="companyregno" class="form-control"/>
 <br>
- <form:errors path="company regno" cssClass="errors"></form:errors> 
+ <form:errors path="companyregno" cssClass="errors"></form:errors> 
 </td>
 </tr>
 
@@ -144,9 +144,9 @@
 <td>Year of Establishment :</td>
 <td>
 
-<form:input path="yoe" class="form-control"/>
+<form:input path="establishedyear" class="form-control"/>
 <br>
- <form:errors path="yoe" cssClass="errors"></form:errors> 
+ <form:errors path="establishedyear" cssClass="errors"></form:errors> 
 </td>
 </tr>
 
@@ -162,7 +162,7 @@
 </form:form>
 
 
-Existing Vendor?<a href="/venlogin/" style="color:yellow;"> SignIn</a>
+Existing Vendor?<a href="/vendor" style="color:yellow;"> SignIn</a>
 </div>
 
 <a href="/">Home</a>

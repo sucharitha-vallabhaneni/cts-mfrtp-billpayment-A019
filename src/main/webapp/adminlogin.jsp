@@ -1,53 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+              <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Bill Payment-Admin Login</title>
-<link rel="stylesheet" type="text/css" href="/style.css"/>
-<script type="text/javascript">
-function validate(){
-	var id=document.getElementById("userid").value;
-	var pwd=document.getElementById("password").value;
-	if(id==""){
-		document.getElementById("userid").style.borderColor="red";
-		alert("please enter valid userid");
-		return false;
-		}else if(pwd=="")
-			{
-			document.getElementById("password").style.borderColor="red";
-			alert("please enter valid password");
-			return false;
-			}
-}
-</script>
+<title>BILL PAYMENT-ADMIN LOGIN</title>
+<link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-<div class="header">
-<h1>BILL PAYMENT</h1>
+<div class="header1">
+<h1>BILL PAYMENT-ADMIN LOGIN</h1>
+${message }
 </div>
-<h2>Admin Login</h2>
-<div class="formdata">
+<!-- Form  -->
 <div align="center">
-<form onsubmit="return validate()" action="loginverify" method="post" modelAttribute="adminlogin">
+<div class="forms-data">
+<form:form action="/admin/adminlogin" method="post" modelAttribute="admin" style="margin-top:50px;">
+
+<table>
 <tr>
-<td>UserId:</td>
-<td><input type="text" name="userid"></td></tr><br><br>
-<tr>
-<td>Password:<td>
-<td><input type="text" name="password"></td><br><br>
-<td><input type="submit" value="submit"></td>
+<td>User Name :</td>
+<td>
+
+<form:input path="username" class="form-control"/>
+<br>
+ <form:errors path="username" cssClass="errors"></form:errors> 
+</td>
 </tr>
-</form>
-<ul>
-<li class="l"><a href="#">Forgot Userid</a>
-<li class="l"><a href="#">Forgot Password</a>
-</ul>
+
+<tr>
+<td>Password :</td>
+<td><form:password path="password" class="form-control"/>
+<br>
+<form:errors path="password" cssClass="errors"></form:errors>
+</td>
+</tr>
+
+
+
+
+
+
+<tr>
+
+<td colspan="2" align="center"><input type="submit" value="Login" class="formsubmitbutton" />
+
+</tr>
+</table>
+
+
+
+</form:form>
+
+
+
+</div>
+
 <a href="/">Home</a>
-
 </div>
-</div>
-
 </body>
 </html>

@@ -1,33 +1,29 @@
 package com.bill.billpayment.domain;
 
-public class AdminLogin {
+public class Adminlogin {
 
-	private String userid;
+	private String username;
+	@Override
+	public String toString() {
+		return "Adminlogin [username=" + username + ", password=" + password + "]";
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	private String password;
-	public String getUserid() {
-		return userid;
-	}
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-	public String getPassword() {
+		public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
-	public AdminLogin() {
+	public Adminlogin() {
 		super();
 	}
-	public AdminLogin(String userid, String password) {
-		super();
-		this.userid = userid;
-		this.password = password;
-	}
-	@Override
-	public String toString() {
-		return "Adminlogin [userid=" + userid + ", password=" + password + "]";
-	}
-	
+		
 }

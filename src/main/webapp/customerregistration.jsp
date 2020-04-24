@@ -22,7 +22,7 @@
 <!-- Form  -->
 <div align="center">
 <div class="forms-data">
-<form:form action="/customer/cusregistration" method="post" modelAttribute="cusreg" style="margin-top:50px;margin-left:30px;">
+<form:form action="/customerregister/cusregistration" method="post" modelAttribute="cusreg" style="margin-top:50px;margin-left:30px;">
 
 <table>
 <tr>
@@ -107,7 +107,7 @@
 </form:form>
 
 
-Existing Customer<a href="/cuslogin/" style="color:yellow;"> SignIn</a>
+Existing Customer?<a href="/customer" style="color:yellow;"> SignIn</a>
 </div>
 
 <a href="/">Home</a>

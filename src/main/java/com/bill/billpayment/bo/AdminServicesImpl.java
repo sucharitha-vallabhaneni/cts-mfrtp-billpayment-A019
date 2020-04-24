@@ -1,6 +1,7 @@
 package com.bill.billpayment.bo;
 
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,8 @@ import org.springframework.stereotype.Service;
 import com.bill.billpayment.dao.Admindao;
 import com.bill.billpayment.dao.Vendordao;
 import com.bill.billpayment.domain.Admin;
-import com.bill.billpayment.domain.AdminLogin;
+
+import com.bill.billpayment.domain.Adminlogin;
 import com.bill.billpayment.domain.Vendor;
 @Service
 @Component
@@ -36,7 +38,7 @@ public class AdminServicesImpl implements AdminServices{
 		
 	}
 	@Override
-	public boolean loginVerification(AdminLogin adminlogin) {
+	public boolean loginVerification(Adminlogin adminlogin) {
 		Admin admin=dao.findByAdminId(adminlogin.getUserid());
 		if(admin!=null) {
 			if(adminlogin.getPassword().equals(admin.getPassword())) {
