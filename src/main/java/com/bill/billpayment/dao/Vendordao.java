@@ -3,9 +3,14 @@ package com.bill.billpayment.dao;
 import java.util.List;
 
 import com.bill.billpayment.domain.Vendor;
+import org.springframework.data.repository.CrudRepository;
 
-public interface Vendordao {
+import com.bill.billpayment.domain.Vendor;
 
-	List<Vendor> findAll();
+public interface Vendordao extends CrudRepository<Vendor, Integer>
+{
+	public List<Vendor>  findAll();
+	public Vendor findByUsername(String username);
+	
 
 }

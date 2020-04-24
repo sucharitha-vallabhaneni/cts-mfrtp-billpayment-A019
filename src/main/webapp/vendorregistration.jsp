@@ -10,11 +10,6 @@
 <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-
-
-
-
-
 <div class="header1">
 <h1>BILL PAYMENT-VENDOR REGISTRATION</h1>
 
@@ -36,7 +31,7 @@
 </tr>
 
 <tr>
-<td>Name :</td>
+<td>Company Name :</td>
 <td>
 
 <form:input path="firstname" class="form-control"/>

@@ -64,10 +64,10 @@ public class AdminController {
 	 public String getVendors(Model model,HttpSession session)
 	 {
 		
-		List<Vendor> cList =adminservice.vendorList();
+		List<Vendor> vList =adminservice.vendorList();
 		 
-		 model.addAttribute("coursesList",cList);
-		 return "adminhome";
+		 model.addAttribute("coursesList",vList);
+		 return "adminportal";
 	 }
 
 	@GetMapping("/adminLogout")
