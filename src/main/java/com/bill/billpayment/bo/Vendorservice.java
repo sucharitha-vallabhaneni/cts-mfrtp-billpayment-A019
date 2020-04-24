@@ -1,5 +1,12 @@
 package com.bill.billpayment.bo;
 
-public interface Vendorservice {
 
+import com.bill.billpayment.domain.Vendor;
+import com.bill.billpayment.domain.Vendorlogin;
+
+public interface Vendorservice 
+{
+	public int createVendor(Vendor vendor);
+	public int login(Vendorlogin vendorlogin);
+		public Vendor getVendor(String username);
 }
