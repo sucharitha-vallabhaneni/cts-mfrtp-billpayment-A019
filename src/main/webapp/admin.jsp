@@ -6,7 +6,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Registration page</title>
-<link rel="stylesheet" type="text/css" href="/style.css"/>
+<link rel="stylesheet" type="text/css" href="/style.css">
+
 <script type="text/javascript">
 function validate(){
 	var fname=document.getElementById("firstname").value;

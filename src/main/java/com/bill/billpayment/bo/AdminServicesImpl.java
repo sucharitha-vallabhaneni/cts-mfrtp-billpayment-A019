@@ -39,7 +39,7 @@ public class AdminServicesImpl implements AdminServices{
 	}
 	@Override
 	public boolean loginVerification(Adminlogin adminlogin) {
-		Admin admin=dao.findByAdminId(adminlogin.getUserid());
+		Admin admin=dao.findByAdminId(adminlogin.getUsername());
 		if(admin!=null) {
 			if(adminlogin.getPassword().equals(admin.getPassword())) {
 				return true;
