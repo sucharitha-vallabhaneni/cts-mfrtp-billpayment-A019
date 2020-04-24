@@ -10,8 +10,8 @@
 <div align="center">
 <h1>BILL PAYMENT</h1>
 
-<a href="/admin/"> Admin </a>
-<a href="/customer">Customer </a>
+<a href="/admin"> Admin </a>
+<a href="/customer/">Customer </a>
 <a href="/vendor/">Vendor</a>
 </div>
 </body>
