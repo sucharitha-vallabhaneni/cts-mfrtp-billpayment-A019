@@ -17,7 +17,7 @@ import com.bill.billpayment.bo.Vendorservice;
 import com.bill.billpayment.domain.Vendorlogin;
 
 @Controller
-@RequestMapping( "/")
+@RequestMapping("/")
 public class VendorController 
 {
 @Autowired
@@ -71,7 +71,7 @@ model.addAttribute("message", "Invalid Password");
 	}
 }
 		}
-@GetMapping("/register")
+@GetMapping("/vendorregister")
 public String userSignUp(Model model)
 {
 Vendor vendor = new Vendor();
