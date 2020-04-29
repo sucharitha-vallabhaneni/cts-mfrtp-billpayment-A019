@@ -1,23 +1,23 @@
 @charset "ISO-8859-1";
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 
 
 body
 {
-	width:100%;
+	width:70%;
 	height:auto;
 	margin: 50;
 	padding: 0;
-	background:url(2.jpg);
-	color:solid Black;
+	background:url(add.jpg);
+	color:solid Blue;
 	font-family: 'Roboto Condensed', sans-serif;
+	
 }
 h1{
 	
 	font-size: 40px;
-	color:white;
+	color:lightblue;
 }
 
 .header1
@@ -25,19 +25,21 @@ h1{
 	width: 100%;
 	height: 150px;
 	padding: 5px;
+	color:light blue;
 	
 }
 
 .forms-data
 {
 	background-color:light blue;
-	width: 550px;
+	width: 400px;
 	height: auto;
-	text-align: auto;
+	text-align: center;
 	border: 2px solid blue;
 	border-radius: 15px;
 	margin-left: 20px;
-	margin-top:10px;
+	color:blue;
+	font-size:20px;
 }
 
 .form-control
@@ -52,7 +54,7 @@ a {
 	text-decoration: none;
 	
 	font-size: 30px;
-	color:Yellow;
+	color:green;
 }
 .formsubmitbutton
 {
@@ -89,7 +91,7 @@ form-controls
 }
 .forms-data{
 	margin:15px;
-	padding:15px;
+	padding:10px;
 }
 input:invalid{
 	background-color:Red;
@@ -104,19 +106,13 @@ input:invalid{
 
 tr
 {
-	border: 1px solid  Green;
+	border: 1px solid white;
+	color:pink;
+	font:15px;
+	
 }
 td
 {
-	text-decoration: none;
-	
-	font-size: 23px;
-	color:black;
-}
-b
-{
-	text-decoration: none;
-	
-	font-size: 23px;
-	color:black;
+	color:pink;
+	font:50px;
 }

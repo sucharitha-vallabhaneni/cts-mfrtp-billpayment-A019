@@ -1,12 +1,16 @@
 package com.bill.billpayment.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.bill.billpayment.dao.Customerdao;
+import com.bill.billpayment.dao.Vendordao;
 import com.bill.billpayment.domain.Customer;
 import com.bill.billpayment.domain.Customerlogin;
+import com.bill.billpayment.domain.Vendor;
 
 @Service
 @Component
@@ -14,6 +18,9 @@ public class CustomerserviceImp implements Customerservice
 {
 	@Autowired
    private Customerdao customerdao;
+	@Autowired
+	private Vendordao vendordao;
+
 	@Override
 	public int createCustomer(Customer customer) 
 	{
@@ -50,6 +57,12 @@ public class CustomerserviceImp implements Customerservice
 	public Customer getCustomer(String username) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public List<Vendor> getallvendors() 
+	{
+	
+		return vendordao.findAll();
 	}
 
 }

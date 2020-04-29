@@ -47,8 +47,9 @@ public class VendorserviceImp implements Vendorservice
 		    		 return 1; // not yet activated
 		    	 }
 		    	 else {
-		    	if(v.getPassword().equals(vendorlogin.getPassword()))
+		    	if(v.getPassword().equals(vendorlogin.getPassword()) && v.getStatus().equals("active"))
 		    	{
+		    		
 		    		return 2 ; // login success;
 		    	}
 		    	else

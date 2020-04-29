@@ -6,17 +6,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>BILL PAYMENT-ADMIN LOGIN</title>
-<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="stylesheet" type="text/css" href="/style1.css">
+
 </head>
 <body>
 <div class="header1">
 <h1>BILL PAYMENT-ADMIN LOGIN</h1>
 ${message }
+
 </div>
+
 <!-- Form  -->
 <div align="center">
 <div class="forms-data">
-<form:form action="/admin/adminlogin" method="post" modelAttribute="admin" style="margin-top:50px;">
+<form:form action="/adminlogin" method="post" modelAttribute="admin" style="margin-top:50px;">
 
 <table>
 <tr>

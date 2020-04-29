@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Vendor;
 import com.bill.billpayment.bo.Vendorservice;
 
@@ -79,26 +80,41 @@ Vendor vendor = new Vendor();
 	return "vendorregistration";
 }
 
-@PostMapping(value = "/venregistration")
+@PostMapping( "/venregistration")
 public String signup(@ModelAttribute("venreg") Vendor vendor,BindingResult result, Model model) {
 	  vendor.setStatus("deactive");
 	
-	System.out.println(vendor);
-	int res =vs.createVendor(vendor);
-	if(res==1)
-	{
-		model.addAttribute("message", vendor.getUsername()+"\t Your Account is created Successfully");
+	  if(result.hasErrors())
+		{
+			return "vendorregistration";
+		}
+		
+		else 
+		{
+			Vendorlogin venlogin = new Vendorlogin();
+			model.addAttribute("vendor",venlogin);
+				
+		int res = vs.createVendor(vendor);
+		if(res==0)
+		{
+			model.addAttribute("message", vendor.getUsername().toUpperCase()+" You are already registered");
+		
+		
+		}
+		else if(res==1)
+		{
+			model.addAttribute("message", vendor.getUsername().toUpperCase()+"Congrats your registration is successfull");
+		
+		
+		}
+		else
+		{
+			model.addAttribute("message", "Some thing went wrong");
+		
+		}
+		
 		
 		return "vendorlogin";
-	}else if(res==2)
-	{
-		model.addAttribute("message",vendor.getUsername()+"\t Your Account is already existed");
-		return "vendorlogin";	
-	}else
-	{
-		model.addAttribute("message", vendor.getUsername()+"\t There is some problem please contact");
-		return "vendorregistration";
-	}
-	
+		}
 }
 }

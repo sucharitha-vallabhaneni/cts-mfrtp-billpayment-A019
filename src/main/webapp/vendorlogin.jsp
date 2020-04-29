@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>BILL PAYMENT-VENDOR LOGIN</title>
-<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="stylesheet" type="text/css" href="/cusstyle.css">
 </head>
 <body>
 <div class="header1">
@@ -16,7 +16,7 @@ ${message }
 <!-- Form  -->
 <div align="center">
 <div class="forms-data">
-<form:form action="/vendor/venlogin" method="post" modelAttribute="vendor" style="margin-top:50px;">
+<form:form action="/venlogin" method="post" modelAttribute="vendor" style="margin-top:50px;">
 
 <table>
 <tr>
@@ -31,7 +31,7 @@ ${message }
 
 <tr>
 <td>Password :</td>
-<td><form:password path="password" class="form-control"/>
+<td><form:password path="password" class="form-control" placeholder="********"/>
 <br>
 <form:errors path="password" cssClass="errors"></form:errors>
 </td>
@@ -56,7 +56,9 @@ ${message }
 
 New Vendor?<a href="/vendorregistration" style="color:yellow;"> SignUp</a>
 </div>
-
+<a href="/">ForgotID?</a><a href="/">ForgotPassword?</a>
+<br>
+<br>
 <a href="/">Home</a>
 </div>
 </body>

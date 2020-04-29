@@ -7,7 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>BILL PAYMENT-CUSTOMER LOGIN</title>
-<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="stylesheet" type="text/css" href="/cusstyle.css">
 </head>
 <body>
 <div class="header1">
@@ -17,7 +17,7 @@ ${message }
 <!-- Form  -->
 <div align="center">
 <div class="forms-data">
-<form:form action="/customer/cuslogin" method="post" modelAttribute="customer" style="margin-top:50px;">
+<form:form action="/cuslogin" method="post" modelAttribute="customer" style="margin-top:50px;">
 
 <table>
 <tr>
@@ -32,7 +32,7 @@ ${message }
 
 <tr>
 <td>Password :</td>
-<td><form:password path="password" class="form-control"/>
+<td><form:password path="password" class="form-control" placeholder="xxxxxxxx"/>
 <br>
 <form:errors path="password" cssClass="errors"></form:errors>
 </td>
@@ -55,9 +55,13 @@ ${message }
 </form:form>
 
 
-New Customer?<a href="/customerregister" style="color:yellow;"> SignUp</a>
-</div>
+New Customer?<a href="/customerregister" style="color:SALMON;"> SignUp</a>
+<br>
 
+</div>
+<a href="#" >FORGOT ID?</a><a href="#">FORGOT PASSWORD?</a>
+<br>
+<br>
 <a href="/">Home</a>
 </div>
 </body>
