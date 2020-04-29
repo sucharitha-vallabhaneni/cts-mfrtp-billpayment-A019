@@ -16,8 +16,8 @@ public class Customer
 {
 	//for customer 2010
 	@Id
-	@SequenceGenerator(name = "",initialValue = 2010,allocationSize = 1,sequenceName = "MESSAGE_SEQ")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator ="messageSeq")
+	@SequenceGenerator(name = "custSequence",initialValue = 3030,allocationSize = 1,sequenceName = "CUSTOMER_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator ="custSequence")
 	private int id;
 	
    @Column(unique = true)

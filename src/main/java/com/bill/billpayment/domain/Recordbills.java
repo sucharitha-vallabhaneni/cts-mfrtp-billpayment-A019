@@ -15,8 +15,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.swing.text.DateFormatter;
 import javax.validation.Valid;
+
+import org.hibernate.validator.constraints.br.TituloEleitoral;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name ="records_bills")
@@ -24,24 +29,26 @@ public class Recordbills
 {
 	//record of bills
 	@Id
-	@SequenceGenerator(name = "",initialValue = 101,allocationSize = 1,sequenceName = "MESSAGE_SEQ")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator ="messageSeq")
+	@SequenceGenerator(name = "billSequence",initialValue = 101,allocationSize = 1,sequenceName = "BILL_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator ="billSequence")
 	private int idr;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id", referencedColumnName = "id")
+	
 
-	  private Customer customer;
+	  
 
 @Column
 private String billname;
 
 @Column
 private String billnumber;
-@Column
+
+@Temporal(TemporalType.DATE)
 private Date billpaiddate;
 @Column
 private String billamount;
+@ManyToOne
+private Customer customer;
 public String getBillname() {
 	return billname;
 }

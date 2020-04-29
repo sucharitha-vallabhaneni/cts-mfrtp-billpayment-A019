@@ -56,7 +56,7 @@ public class CustomerserviceImp implements Customerservice
 	@Override
 	public Customer getCustomer(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		return customerdao.findByUsername(username);
 	}
 	@Override
 	public List<Vendor> getallvendors() 

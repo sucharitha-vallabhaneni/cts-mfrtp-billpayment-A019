@@ -147,7 +147,7 @@ private Recordbillsservice rbs;
 	}
 	//for recording bills
 	@PostMapping("savebills")
-	public String savebills(@Valid @ModelAttribute("recbills") Recordbills rb,BindingResult result,Model model)
+	public String savebills(@Valid @ModelAttribute("recbills") Recordbills rb,BindingResult result,Model model,HttpSession session)
 	{
 		if(result.hasErrors())
 		{
@@ -157,6 +157,10 @@ private Recordbillsservice rbs;
 		else 
 		{
 			
+			String custusername=(String) session.getAttribute("custusername");
+			Customer c = cs.getCustomer(custusername);
+			System.out.println(c);
+			rb.setCustomeruname(c);
 
 					int res = rbs.savebills(rb);
 		
