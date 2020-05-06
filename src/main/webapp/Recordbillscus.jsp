@@ -44,7 +44,7 @@
 <td>Bill PaidDate:</td>
 <td>
 
-<form:input path="billpaiddate" class="form-control"/>
+<form:input path="billpaiddate" class="form-control" placeholder="yyyy-MM-dd"/>
 <br>
  <form:errors path="billpaiddate" cssClass="errors"></form:errors> 
 </td>

@@ -15,11 +15,11 @@
 <h2>${success}</h2>
 
 <ul class="b">
+<li><a href="cusvendors" class="a1">Vendors</a></li>&nbsp
 
 <li><a href="recordbill" class="a1">Record Bills</a></li>&nbsp
-<li><a href="#" class="a1">Bill Payment</a></li>&nbsp
-<li><a href="cusvendors" class="a1">Vendors</a></li>&nbsp
-<li><a href="#" class="a1">Bill History</a></li>&nbsp
+
+<li><a href="billpayhome" class="a1">Bill Payment</a></li>&nbsp
 
 <li><a href="reminder" class="a1">Set Reminder</a></li>&nbsp
 <li><a href="#" class="a1"> FeedBack</a></li>&nbsp

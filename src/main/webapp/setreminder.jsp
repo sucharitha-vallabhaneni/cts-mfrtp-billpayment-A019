@@ -37,7 +37,13 @@ ${message }
 </td>
 </tr>
 
-
+<tr>
+<td>Time :</td>
+<td><form:password path="time" class="form-control" placeholder="HH:mm:ss"/>
+<br>
+<form:errors path="time" cssClass="errors"></form:errors>
+</td>
+</tr>
 
 
 

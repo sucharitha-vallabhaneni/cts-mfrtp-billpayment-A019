@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -20,8 +22,8 @@ public class Vendor
 {
 	//vendor details 
 		@Id
-		@SequenceGenerator(name = "vendor seq",initialValue = 3010,allocationSize = 1,sequenceName = "MESSAGE_SEQ")
-		@GeneratedValue(strategy = GenerationType.SEQUENCE,generator ="messageSeq")
+		@SequenceGenerator(name = "vendorseq",initialValue = 3010,allocationSize = 1,sequenceName = "VEN_SEQ")
+		@GeneratedValue(strategy = GenerationType.SEQUENCE,generator ="vendorseq")
 		private int id;
 	
 	@Column(unique = true)
@@ -45,13 +47,13 @@ public class Vendor
 	@Column
 	private String website;
 
-	@Column
+	@Temporal(TemporalType.DATE)
 	private Date cid;
 
-	@Column
+	@Temporal(TemporalType.DATE)
 	private Date cvd;
 
-	@Column
+	@Temporal(TemporalType.DATE)
 	private Date establishedyear;
 	@Column(unique = true)
 	   @NotEmpty(message = "password should not  be empty")

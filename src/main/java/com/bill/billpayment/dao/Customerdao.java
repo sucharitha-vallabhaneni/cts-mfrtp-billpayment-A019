@@ -7,6 +7,7 @@ import com.bill.billpayment.domain.Customer;
 public interface Customerdao extends CrudRepository<Customer,Integer>
 {
 
-	public Customer findByUsername(String username);
+	Customer findByUsername(String username);
+
 	
 }
