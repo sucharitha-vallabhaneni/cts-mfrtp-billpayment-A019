@@ -67,7 +67,7 @@
 
 
 <tr>
-<td>Contact number :</td>
+<td>Contact number:</td>
 <td>
 
 <form:input path="mobile" class="form-control"/>
@@ -90,7 +90,7 @@
 <td>Certificate Issued Date:</td>
 <td>
 
-<form:input path="cid" class="form-control"/>
+<form:input type="date" path="cid" class="form-control"/>
 <br>
  <form:errors path="cid" cssClass="errors"></form:errors> 
 </td>
@@ -100,7 +100,7 @@
 <td>Certificate Validity Date :</td>
 <td>
 
-<form:input path="cvd" class="form-control"/>
+<form:input type="date" path="cvd" class="form-control"/>
 <br>
  <form:errors path="cvd" cssClass="errors"></form:errors> 
 </td>
