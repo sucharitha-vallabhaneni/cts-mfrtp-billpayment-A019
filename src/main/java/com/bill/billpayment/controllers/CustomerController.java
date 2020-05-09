@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bill.billpayment.domain.Customer;
 import com.bill.billpayment.bo.Customerservice;
@@ -21,6 +22,8 @@ import com.bill.billpayment.bo.Recordbillsservice;
 import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Recordbills;
 import com.bill.billpayment.domain.Reminders;
+import com.bill.billpayment.domain.Security;
+import com.bill.billpayment.domain.Security1;
 import com.bill.billpayment.domain.Vendor;
 
 @Controller
@@ -65,17 +68,18 @@ private Recordbillsservice rbs;
 	//displaying customer registration page
 	
 	@GetMapping("/customerregister")
-	public String customerRegisterForm(Model model)
+	public String customerRegisterForm(Model model,Model secmodel)
 	{
 		Customer customer=new Customer();
 		model.addAttribute("cusreg", customer);
-		
+		Security1 secure = new Security1();
+		 secmodel.addAttribute("securityque", secure);
 		return "customerregistration";
 	}
 
 	//registering customer details
 	@PostMapping("/cusregistration")
-	public String registercustomer(@Valid @ModelAttribute("cusreg") Customer customer,BindingResult result,Model model)
+	public String registercustomer(@Valid @ModelAttribute("cusreg") Customer customer,@ModelAttribute("securityque") Security1 sec,BindingResult result,Model model)
 	{
 		if(result.hasErrors())
 		{
@@ -86,6 +90,9 @@ private Recordbillsservice rbs;
 		{
 			Customerlogin cuslogin = new Customerlogin();
 			model.addAttribute("customer",cuslogin);
+			sec.setUserId(customer.getUsername());
+			customer.setSecurity1(sec);
+			System.out.println(customer);
 				
 		int res = cs.createCustomer(customer);
 		if(res==0)
@@ -185,4 +192,101 @@ private Recordbillsservice rbs;
 		return "setreminder";
 	}
 	
+
+@GetMapping(value="/forgotcuserid")
+public String forgetId(Model model) {
+ return "ForgotCUserId"; }
+
+ @PostMapping("/getCUserId") 
+ public String getUserid(@RequestParam("mobile") String mobile,@RequestParam("secretquestion") String question,@RequestParam("answer") String answer,Model model) {
+ 
+ System.out.println(question +" "+answer); 
+ Security1 sc =cs.getSecurity1(mobile);
+ System.out.println(sc); 
+ if(sc==null)
+{
+	  model.addAttribute("message","Your contact number is not registered with us ");
+	  return "ForgotCUserId";
+ }
+ 
+ if(question.equals(sc.getSecretquestion()) && answer.equals(sc.getAnswer()))
+ {
+
+	  model.addAttribute("message", "Your User Id is :<b>"+sc.getUserId());
+	  return "ForgotCUserId"; 
+	  } 
+ else
+ {
+	  model.addAttribute("message","Invalid secret question credentials ");
+	  return "ForgotCUserId";
+
+}
+ } 
+@GetMapping(value="/forgotcpassword")
+public String forgetPwd(Model model) {
+ return "ForgotCPassword";
+ }
+ 
+ @PostMapping(value="/getcpwd")
+ public String getPassword(@RequestParam("username") String userid,@RequestParam("secretquestion") String que,@RequestParam("answer") String ans, Model model,HttpSession session) { 
+	  Security1 sc =cs.getSecurity1pwd(userid); 
+	  System.out.println(sc); 
+	  if(sc==null)
+		 {
+			 model.addAttribute("message", "Your UserId is not not registered with us ");
+			 return "ForgotCPassword";
+		 }
+		 
+		if(que.equals(sc.getSecretquestion()) && ans.equals(sc.getAnswer()))
+		 {
+			// model.addAttribute("message", "Your password is :<b>"+sc.getPassword());
+			
+			model.addAttribute("userid", sc.getUserId());
+			 
+			 return "ResetCPassword";	 
+		 }
+		 else
+		 {
+			 model.addAttribute("message", "Invalid secret question credentials ");
+			 return "ForgotCPassword";
+			
+		 }
+
+ }
+ 
+ @PostMapping("/resetcpwd")
+ public String resetPassword(@RequestParam("password")String pwd,@RequestParam("confirmationpassword")String cpwd,Model model,HttpSession session,
+		 @RequestParam("username") String username
+		 )
+ {
+ 
+//String userid = (String)session.getAttribute("username");
+ 
+
+ if(pwd.equals(cpwd)) { 
+	 Customer be =cs.getuserdata(username); 
+	  be.setPassword(pwd);
+	  be.setConfirmationpassword(cpwd);
+	
+ 
+ boolean status = cs.updatePassword(be);
+ if(status == true) {
+ 
+model.addAttribute("message", "reset password Sucessfully");
+return"ResetCPassword"; 
+}
+ else
+ {
+	 model.addAttribute("message", "not reset"); 
+     return "ResetCPassword"; 
+ 	}
+
+}
+ else
+ {
+	  model.addAttribute("message","new password and conformation are not same"); 
+	  return "ResetCPassword";
+	  }
+ }
+
 }

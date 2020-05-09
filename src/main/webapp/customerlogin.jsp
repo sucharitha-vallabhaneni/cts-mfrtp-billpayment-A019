@@ -59,7 +59,7 @@ New Customer?<a href="/customerregister" style="color:SALMON;"> SignUp</a>
 <br>
 
 </div>
-<a href="#" >FORGOT ID?</a><a href="#">FORGOT PASSWORD?</a>
+<a href="/forgotcuserid" >FORGOT ID?</a><a href="/forgotcpassword">FORGOT PASSWORD?</a>
 <br>
 <br>
 <a href="/">Home</a>

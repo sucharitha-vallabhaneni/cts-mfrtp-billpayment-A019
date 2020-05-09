@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.bill.billpayment.dao.Vendordao;
+import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Vendor;
 import com.bill.billpayment.domain.Vendorlogin;
 @Service
@@ -63,10 +64,36 @@ public class VendorserviceImp implements Vendorservice
 		
 	}
 
+	
+
 	@Override
-	public Vendor getVendor(String username) {
-		// TODO Auto-generated method stub
-		return null;
+	public Security getSecurity(String mobile) {
+		 return vendordao.getSecurityCredentials(mobile); }
+	 
+	
+
+	@Override
+	public Security getSecuritypwd(String userId) {
+		return vendordao.getSecuritypassword(userId);
+	}
+
+	@Override
+	public boolean updatePassword(Vendor vendor) {
+Vendor be1 = vendordao.save(vendor);
+		
+		if(be1!=null) {
+			
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	@Override
+	public Vendor getuserdata(String userId) {
+		
+		return vendordao.getVendor(userId);
 	}
 
 }

@@ -3,6 +3,7 @@ package com.bill.billpayment.bo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,8 @@ import com.bill.billpayment.dao.Customerdao;
 import com.bill.billpayment.dao.Vendordao;
 import com.bill.billpayment.domain.Customer;
 import com.bill.billpayment.domain.Customerlogin;
+import com.bill.billpayment.domain.Security;
+import com.bill.billpayment.domain.Security1;
 import com.bill.billpayment.domain.Vendor;
 
 @Service
@@ -18,9 +21,9 @@ public class CustomerserviceImp implements Customerservice
 {
 	@Autowired
    private Customerdao customerdao;
-	@Autowired
-	private Vendordao vendordao;
-
+   @Autowired
+   private Vendordao vendordao;
+	
 	@Override
 	public int createCustomer(Customer customer) 
 	{
@@ -62,7 +65,32 @@ public class CustomerserviceImp implements Customerservice
 	public List<Vendor> getallvendors() 
 	{
 	
+		
 		return vendordao.findAll();
 	}
+	@Override
+	public Security1 getSecurity1(String mobile) {
+		 return customerdao.getSecurity1Credentials(mobile); }
+	@Override
+	public Security1 getSecurity1pwd(String userId) {
+		return customerdao.getSecurity1password(userId);
+	}
+	@Override
+	public boolean updatePassword(Customer customer) {
+       Customer be1 = customerdao.save(customer);
+		
+		if(be1!=null) {
+			
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	@Override
+	public Customer getuserdata(String userId) {
+		return customerdao.getCustomer(userId);
+	}
+
 
 }

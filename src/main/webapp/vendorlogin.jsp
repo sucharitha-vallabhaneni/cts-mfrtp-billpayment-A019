@@ -56,7 +56,7 @@ ${message }
 
 New Vendor?<a href="/vendorregistration" style="color:yellow;"> SignUp</a>
 </div>
-<a href="/">ForgotID?</a><a href="/">ForgotPassword?</a>
+<a href="/forgotuserId">ForgotID?</a><a href="/forgotpassword">ForgotPassword?</a>
 <br>
 <br>
 <a href="/">Home</a>

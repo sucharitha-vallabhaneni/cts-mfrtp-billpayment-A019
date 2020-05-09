@@ -3,12 +3,15 @@ package com.bill.billpayment.domain;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -57,6 +60,8 @@ public class Vendor
 	   @NotEmpty(message = "password should not  be empty")
 	private String password;
 	@Column
+	private String confirmationpassword;
+	@Column
 	private String address;
 	@Column
 	private String country;
@@ -70,9 +75,20 @@ public class Vendor
 	
 	@Column
     private String status;
+	@OneToOne(cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="s_no",referencedColumnName ="id")
+	private Security security;
 	
 	
 	
+	public Security getSecurity() {
+		return security;
+	}
+
+	public void setSecurity(Security security) {
+		this.security = security;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -91,6 +107,14 @@ public class Vendor
 
 	public String getCompanyname() {
 		return companyname;
+	}
+
+	public String getConfirmationpassword() {
+		return confirmationpassword;
+	}
+
+	public void setConfirmationpassword(String confirmationpassword) {
+		this.confirmationpassword = confirmationpassword;
 	}
 
 	public void setCompanyname(String companyname) {
@@ -235,11 +259,13 @@ e.printStackTrace();
 	public String toString() {
 		return "Vendor [id=" + id + ", username=" + username + ", companyname=" + companyname + ", companyregno="
 				+ companyregno + ", email=" + email + ", mobile=" + mobile + ", website=" + website + ", cid=" + cid
-				+ ", cvd=" + cvd + ", establishedyear=" + establishedyear + ", password=" + password + ", address="
-				+ address + ", country=" + country + ", state=" + state + ", secretquestion=" + secretquestion
-				+ ", answer=" + answer + ", status=" + status + "]";
+				+ ", cvd=" + cvd + ", establishedyear=" + establishedyear + ", password=" + password
+				+ ", confirmationpassword=" + confirmationpassword + ", address=" + address + ", country=" + country
+				+ ", state=" + state + ", secretquestion=" + secretquestion + ", answer=" + answer + ", status="
+				+ status + ", security=" + security + "]";
 	}
 
+	
 	
 
 		

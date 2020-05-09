@@ -1,10 +1,14 @@
 package com.bill.billpayment.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -37,6 +41,8 @@ public class Customer
 	@Column
 	 @NotEmpty(message = "Password should not  be empty")
 	private String password;
+	@Column
+	private String confirmationpassword;
 	@Column(unique = true)
 	@Email(message = "Invalid Email")
 	private String email;
@@ -56,6 +62,20 @@ public class Customer
 	private String secretquestion;
 		@Column
 	private String answer;
+		@OneToOne(cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+		@JoinColumn(name="s_no",referencedColumnName ="id")
+		private Security1 security1;
+		
+		
+		
+		public Security1 getSecurity1() {
+			return security1;
+		}
+
+		public void setSecurity1(Security1 sec) {
+			this.security1 = sec;
+		}
+
 	public String getFirstname() {
 		return firstname;
 	}
@@ -73,6 +93,13 @@ public class Customer
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getConfirmationpassword() {
+		return confirmationpassword;
+	}
+	public void setConfirmationpassword(String confirmationpassword) {
+		this.confirmationpassword = confirmationpassword;
 	}
 	public String getEmail() {
 		return email;
@@ -131,10 +158,14 @@ public class Customer
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", username=" + username + ", firstname=" + firstname + ", lastname=" + lastname
-				+ ", password=" + password + ", email=" + email + ", mobile=" + mobile + ", gender=" + gender
-				+ ", address=" + address + ", country=" + country + ", state=" + state + ", secretquestion="
-				+ secretquestion + ", answer=" + answer + "]";
+				+ ", password=" + password + ", confirmationpassword=" + confirmationpassword + ", email=" + email
+				+ ", mobile=" + mobile + ", gender=" + gender + ", address=" + address + ", country=" + country
+				+ ", state=" + state + ", secretquestion=" + secretquestion + ", answer=" + answer + ", security1="
+				+ security1 + "]";
 	}
+	
+	
+	
 
 		
 }

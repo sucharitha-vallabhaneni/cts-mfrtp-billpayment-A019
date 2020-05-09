@@ -124,6 +124,13 @@
 <form:errors path="password" cssClass="errors"></form:errors>
 </td>
 </tr>
+<tr>
+<td> Confirm Password :</td>
+<td><form:password path="confirmationpassword" class="form-control" placeholder="xxxxxxxx"/>
+<br>
+<form:errors path="password" cssClass="errors"></form:errors>
+</td>
+</tr>
 
 <tr>
 <td>Country :</td>
