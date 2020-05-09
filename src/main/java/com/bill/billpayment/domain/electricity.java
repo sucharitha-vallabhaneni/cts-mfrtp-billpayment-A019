@@ -1,6 +1,9 @@
 package com.bill.billpayment.domain;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -38,8 +41,8 @@ private String servicenumber;
 
 @Column
 private String amount;
-/*@Column
-private Date billpaydate;*/
+@Column
+private Date billpaydate;
 
 
 @Column
@@ -49,6 +52,9 @@ private String board;
 
 @ManyToOne
 private Customer customer;
+
+@Column
+private String transactionstatus;
 
 public int getId() {
 	return id;
@@ -82,7 +88,7 @@ public void setAmount(String amount) {
 	this.amount = amount;
 }
 
-/*public Date getBillpaydate() {
+public Date getBillpaydate() {
 	return billpaydate;
 }
 
@@ -98,7 +104,7 @@ public void setBillpaydate(String billpaydate)
 		e.printStackTrace();
 	}
 	this.billpaydate = dt;
-}*/
+}
 
 
 public String getState() {
@@ -123,11 +129,19 @@ public Customer getCustomeruname() {
 public void setCustomeruname(Customer customeruname) {
 	this.customer = customeruname;
 }
+public String getTransactionstatus() {
+	return transactionstatus;
+}
+
+public void setTransactionstatus(String transactionstatus) {
+	this.transactionstatus = transactionstatus;
+}
 
 @Override
 public String toString() {
 	return "electricity [id=" + id + ", billnumber=" + billnumber + ", servicenumber=" + servicenumber + ", amount="
-			+ amount + ", state=" + state + ", board=" + board + ", customer=" + customer + "]";
+			+ amount + ", state=" + state + ", board=" + board + ", customer=" + customer + ", transactionstatus="
+			+ transactionstatus + "]";
 }
 
 

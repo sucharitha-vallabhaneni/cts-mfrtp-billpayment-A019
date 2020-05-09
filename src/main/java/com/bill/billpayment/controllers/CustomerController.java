@@ -13,19 +13,16 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bill.billpayment.domain.Customer;
-import com.bill.billpayment.bo.Creditservice;
+
 import com.bill.billpayment.bo.Customerservice;
 import com.bill.billpayment.bo.Recordbillsservice;
-import com.bill.billpayment.bo.ebillservice;
+
 import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Recordbills;
 import com.bill.billpayment.domain.Reminders;
 import com.bill.billpayment.domain.Vendor;
-import com.bill.billpayment.domain.Credit;
-import com.bill.billpayment.domain.electricity;
 
 @Controller
 
@@ -34,10 +31,7 @@ public class CustomerController {
 	private Customerservice cs;
 @Autowired
 private Recordbillsservice rbs;
-@Autowired
-private ebillservice ebs;
-@Autowired
-private Creditservice credits;
+
 //displaying customer login page
     	@GetMapping("/customer")
 	public String Customer(Model model)
@@ -192,84 +186,4 @@ private Creditservice credits;
 		model.addAttribute("reminder",rem);
 		return "setreminder";
 	}
-	//for redirecting to bill payment home page
-	@GetMapping("billpayhome")
-	public String billhomepage(Model model)
-	{
-		return "billpaymenthome";
-	}
-	
-	//electricity home page
-	@GetMapping("electricity")
-	public String elechomepage(Model model)
-	{
-		
-	electricity e=new electricity();
-	model.addAttribute("electricity",e);
-		return "electricity";
-	}
-	//e-bill saving
-	@PostMapping("ebillsave")
-	public String saveebills(@Valid @ModelAttribute("electricity")electricity e ,BindingResult result,Model model,HttpSession session)
-	{
-		if(result.hasErrors())
-		{
-			return "electricity";
-		}
-		
-		else 
-		{
-			
-			String custusername=(String) session.getAttribute("custusername");
-			Customer c = cs.getCustomer(custusername);
-			
-			e.setCustomeruname(c);
-
-					int res = ebs.savebill(e);
-		
-		 if(res==1)
-		{
-			model.addAttribute("success", "Congrats your bill has been recorded  successfully");
-		      
-			return "paybillhome";
-		}
-		return "paybillhome";
-		}
-	
-	}
-//paybill page
-	@GetMapping("pay")
-	public String paypage(Model model)
-	{
-		Credit credit=new Credit();
-		model.addAttribute("verifypay",credit);
-		return "paybill";
-	}
-	//bill verification
-	@PostMapping("verify")
-	public String bverify(@Valid @ModelAttribute("verifypay") Credit credit,Model model,HttpSession session,BindingResult result)
-	{
-		if(result.hasErrors())	
-		{
-			return "paybill";
-		}
-		else
-		{
-			boolean status=credits.verify(credit);
-			if(status)
-			{
-				session.setAttribute("user", credit.getCardnumber());
-				
-				return "success";
-			}
-			else
-			{
-			model.addAttribute("message", "Invalid ");
-				return "paybill";
-			}
-
-	}
-			
-
-}
 }

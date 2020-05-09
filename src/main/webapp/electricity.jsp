@@ -7,7 +7,7 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/cusstyle.css">
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
     function dynamicdropdown(listindex)
     {
         switch (listindex)
@@ -134,11 +134,11 @@ ${message }
 <!-- Form  -->
 <div align="center">
 <div class="forms-data">
-<form:form action="ebillsave" method="post" modelAttribute="electricity" style="margin-top:50px;margin-left:30px;">
-<table>
+<form:form action="ebillsave" method="post" modelAttribute="electricity" style="margin-top:50px;">
+<table >
 
 <tr>
-<td>Bill Number:</td>
+<td align="left" style="width:10rem;padding: 5px; margin-left: 0;">Bill Number:</td>
 <td>
 <form:input path="billnumber"  class="form-control" />
 <br>
@@ -147,7 +147,7 @@ ${message }
 </tr>
 
 <tr>
-<td>Service Number:</td>
+<td align="left" style="width:10rem;padding: 5px; margin-left: 0;">Service Number:</td>
 <td>
 <form:input path="servicenumber"  class="form-control" required="required"/>
 <br>
@@ -156,7 +156,7 @@ ${message }
 </tr>
 
 <tr>
-<td>Amount:</td>
+<td align="left" style="width:10rem;padding: 5px; margin-left: 0;">Amount:</td>
 <td>
 <form:input path="amount"   class="form-control"/>
 <br>
@@ -164,12 +164,20 @@ ${message }
 </td>
 </tr>
 
-
 <tr>
-<td>State:</td>
+<td align="left" style="width:10rem;padding: 5px; margin-left: 0;">Bill Date:</td>
+<td>
+
+<form:input type="date" path="billpaydate" class="form-control" style="width:180px;"/>
+<br>
+ <form:errors path="billpaydate" cssClass="errors"></form:errors> 
+</td>
+</tr>
+<tr>
+<td align="left" style="width:10rem;padding: 5px; margin-left: 0;">State:</td>
 <td>
 <div class="category_div" id="category_div">
-        <select id="state" name="state" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+        <select style="width: 200px;height: 30px;" id="state" name="state" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
         <option value="" disabled selected>Select state</option>
         <option value="AP">AndhraPradesh</option>
 
@@ -199,14 +207,14 @@ ${message }
     </tr>
     
     <tr>
-    <td>Board:</td>
+    <td align="left" style="width:10rem;padding: 5px; margin-left: 0;">Board:</td>
     <td>
     <div class="sub_category_div" id="sub_category_div">
-        <script type="text/javascript" language="JavaScript">
-        document.write('<select name="board" id="board"><option value="" disabled selected>Select board</option></select>')
+        <script type="text/javascript" >
+        document.write('<select name="board" id="board" style="width: 200px;height: 30px;"><option value="" disabled selected>Select board</option></select>')
         </script>
         <noscript>
-        <select id="board" name="board">
+        <select id="board" name="board" style="width: 200px;height: 30px;">
             
         </select>
         </noscript>
@@ -214,7 +222,7 @@ ${message }
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><input type="submit" value="Confirm" class="formsubmitbutton" />
+<td colspan="2" align="center"><input type="submit" value="CONFIRM" class="formsubmitbutton" />
 </tr>
 </table>
 </form:form>

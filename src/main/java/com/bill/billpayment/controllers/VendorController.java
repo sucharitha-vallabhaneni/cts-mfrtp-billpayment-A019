@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Vendor;
 import com.bill.billpayment.bo.Vendorservice;
 
