@@ -19,7 +19,7 @@
 <ul class="a">
 <li><a href="/vendors">Registered vendors</a></li>&nbsp
 <li><a href="#" class="a1">Generate Report</a></li>&nbsp
-<li><a href="#" class="a1">Report issues</a></li>&nbsp
+<li><a href="/helpreq" class="a1">Report issues</a></li>&nbsp
 
 </li>
 <li><a href="/" class="a1">Logout</a></li>

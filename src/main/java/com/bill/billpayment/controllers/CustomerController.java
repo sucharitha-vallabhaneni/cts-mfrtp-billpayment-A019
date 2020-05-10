@@ -1,6 +1,6 @@
 package com.bill.billpayment.controllers;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -21,6 +21,8 @@ import com.bill.billpayment.bo.Customerservice;
 import com.bill.billpayment.bo.Recordbillsservice;
 import com.bill.billpayment.bo.ebillservice;
 import com.bill.billpayment.domain.Customerlogin;
+import com.bill.billpayment.domain.Feedbackquestions;
+import com.bill.billpayment.domain.Help;
 import com.bill.billpayment.domain.Recordbills;
 import com.bill.billpayment.domain.Reminders;
 import com.bill.billpayment.domain.Vendor;
@@ -269,7 +271,71 @@ private Creditservice credits;
 			}
 
 	}
+	}
 			
+		@GetMapping("/feedback1")
+		public String feedback1(Model model,HttpSession session)
+		{
+			String userid = (String)session.getAttribute("custusername");
+			Feedbackquestions f=new Feedbackquestions();
+			f.setUsername(userid);
+			model.addAttribute("feedbk", f);
+			return "FeedBackpage";
+		}
+		@PostMapping(value="/feedbackques")
+		public String feedback(@ModelAttribute("feedbk")Feedbackquestions fdq,BindingResult result,Model model) {
+			if(result.hasErrors())
+			{
+				return "FeedBackpage";
+				
+			}
+			else {
+				int res=cs.CreateFeedback(fdq);
+				if(res==0)
+				{
+					
+					model.addAttribute("message",fdq.getUsername()+" you are already submitted the feedback");
+					return "FeedBackpage";
+				}
+				else if(res==1)
+				{
+					model.addAttribute("message",fdq.getUsername()+" you are successfully submitted the feedback");
+					return "FeedBackpage";
+				}
+				else {
+					model.addAttribute("message","something went wrong");
+					return "FeedBackpage";
+				}
+			}
+		
+		}
+		@GetMapping(value="/beforehelp")
+		public String help(Model model)
+		{
+			model.addAttribute("help",new Help());
+			return "CusHelp";
+		}
+		@PostMapping(value="/afterhelp")
+		public String help1(@ModelAttribute("help") Help h,BindingResult result,Model model) {
+			if(result.hasErrors())
+			{
+				return "CusHelp";
+			}
+			else
+			{
+				int status=cs.help(h);
+				if(status==1)
+				{
+					model.addAttribute("message","your issue is registered");
+					return "CusHelp";
+				}
+				else
+				{
+					model.addAttribute("message","Something went wrong");
+					return "failure";
+				}
+			}
+		}
 
-}
-}
+	}	
+

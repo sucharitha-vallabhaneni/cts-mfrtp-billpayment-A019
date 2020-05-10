@@ -8,8 +8,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.bill.billpayment.dao.Admindao;
+import com.bill.billpayment.dao.HelpDao;
 import com.bill.billpayment.dao.Vendordao;
 import com.bill.billpayment.domain.Aminlogin;
+import com.bill.billpayment.domain.Help;
 import com.bill.billpayment.domain.Vendor;
 @Service
 @Component
@@ -19,6 +21,8 @@ public class AdminserviceImp implements Adminservice
 private Admindao adao;
 @Autowired
 private Vendordao vendordao;
+@Autowired
+private HelpDao hdao;
 	@Override
 	public boolean login(Aminlogin adminlogin)
 	{
@@ -57,4 +61,14 @@ private Vendordao vendordao;
 		return false;
 	}
 		return true;
-	}	}	
+	}	
+	
+	@Override
+	public List<Help> getallhelpList() {
+		// TODO Auto-generated method stub
+		return hdao.findAll();
+	}
+	
+
+
+}	

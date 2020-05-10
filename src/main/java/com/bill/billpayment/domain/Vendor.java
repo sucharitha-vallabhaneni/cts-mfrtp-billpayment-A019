@@ -1,7 +1,7 @@
 package com.bill.billpayment.domain;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 
 
 import javax.persistence.Column;
@@ -47,14 +47,15 @@ public class Vendor
 	@Column
 	private String website;
 
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
+	@Column
 	private Date cid;
 
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
+	@Column
 	private Date cvd;
-
-	@Temporal(TemporalType.DATE)
-	private Date establishedyear;
+@Column
+	private int establishedyear;
 	@Column(unique = true)
 	   @NotEmpty(message = "password should not  be empty")
 	private String password;
@@ -191,46 +192,28 @@ public class Vendor
 		return cid;
 	}
 
-	public void setCid(String cid) {
-
-		SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-		try {
-		this.cid = dateformat.parse(cid);
-		}catch (Exception e) {
-
-e.printStackTrace();
-		}
-		
-	}
-
+	
+	
+	
+	
 	public Date getCvd() {
 		return cvd;
 	}
 
-	public void setCvd(String cvd) {
-		SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-		try {
-		this.cvd = dateformat.parse(cvd);
-		}catch (Exception e) {
-
-e.printStackTrace();
-		}
-
+	public void setCvd(Date cvd) {
+		this.cvd = cvd;
 	}
 
-	public Date getEstablishedyear() {
+	public int getEstablishedyear() {
 		return establishedyear;
 	}
 
-	public void setEstablishedyear(String establishedyear) {
-		SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-		try {
-		this.establishedyear = dateformat.parse(establishedyear);
-		}catch (Exception e) {
+	public void setEstablishedyear(int establishedyear) {
+		this.establishedyear = establishedyear;
+	}
 
-e.printStackTrace();
-		}
-
+	public void setCid(Date cid) {
+		this.cid = cid;
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package com.bill.billpayment.controllers;
 
-import java.util.List;
+import java.util.List; 
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bill.billpayment.bo.Adminservice;
 import com.bill.billpayment.domain.Aminlogin;
+import com.bill.billpayment.domain.Help;
 import com.bill.billpayment.domain.Vendor;
 
 @Controller
@@ -80,6 +81,13 @@ public String deactivate(@RequestParam("id") String username)
 		return "vdeac";
 	}
 	return "failure";
+}
+@GetMapping("/helpreq")
+public String showList(Model model,HttpSession session)
+{
+	List<Help> helpList=as.getallhelpList();
+	model.addAttribute("helplist", helpList);
+	return "HelpList";
 }
 @GetMapping("/back")
 public String returntohome(Model model)

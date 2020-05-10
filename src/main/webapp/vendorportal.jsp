@@ -15,7 +15,7 @@
 <li><a href="/vendorupdate" class="a1">Vendorupdate</a></li>
 
 <li><a href="#" class="a1">Generate Report</a></li>
-<li><a href="#" class="a1">Help</a></li>
+<li><a href="/beforehelp1" class="a1">Help</a></li>
 <li><a href="/" class="a1">Logoff</a></li>
 </ul>
 </div>
