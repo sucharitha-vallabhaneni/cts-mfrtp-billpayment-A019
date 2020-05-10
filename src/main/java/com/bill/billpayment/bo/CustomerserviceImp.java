@@ -8,12 +8,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.bill.billpayment.dao.Customerdao;
+import com.bill.billpayment.dao.Dthbilldao;
 import com.bill.billpayment.dao.Vendordao;
+import com.bill.billpayment.dao.ebilldao;
 import com.bill.billpayment.domain.Customer;
 import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Security1;
+import com.bill.billpayment.domain.Dth;
 import com.bill.billpayment.domain.Vendor;
+import com.bill.billpayment.domain.electricity;
 
 @Service
 @Component
@@ -21,9 +25,13 @@ public class CustomerserviceImp implements Customerservice
 {
 	@Autowired
    private Customerdao customerdao;
-   @Autowired
-   private Vendordao vendordao;
-	
+  
+	@Autowired
+	private Vendordao vendordao;
+@Autowired
+private ebilldao edao;
+@Autowired
+private Dthbilldao ddao;
 	@Override
 	public int createCustomer(Customer customer) 
 	{
@@ -92,5 +100,14 @@ public class CustomerserviceImp implements Customerservice
 		return customerdao.getCustomer(userId);
 	}
 
+	public List<electricity> geElectricities() {
+		
+		return edao.findAll();
+	}
+	@Override
+	public List<Dth> getDth() {
+		
+		return ddao.findAll();
+	}
 
 }

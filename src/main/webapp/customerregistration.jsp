@@ -10,11 +10,6 @@
 <link rel="stylesheet" type="text/css" href="cusstyle.css">
 </head>
 <body>
-
-
-
-
-
 <div class="header1">
 <h1>BILL PAYMENT-CUSTOMER REGISTRATION</h1>
 
@@ -104,7 +99,7 @@
 <td>
 <select name="country" >
 <option value="" disabled selected>Select</option>
- <option value="australia">Australia</option>
+<option value="australia">Australia</option>
 <option value="canada">Canada</option>
 <option value="denmark">Denmark</option>
 <option value="france">France</option>
@@ -125,33 +120,22 @@
 <td>
 <select  name="state"  >
 <option value="" disabled selected>Select</option>
-<option value="australia">New SouthWales</option>
-<option value="canada">Victoria</option>
-<option value="denmark">QueensLand</option>
-<option value="france">Western Australia</option>
-<option value="germany">Alberta</option>
-<option value="india">British Columbia</option>
-<option value="japan">Manitoba</option>
-<option value="US">Copenhagen</option>
-<option value="australia">AndhraPradesh</option>
-<option value="canada">ArunachalPradesh</option>
-<option value="denmark">Assam</option>
-<option value="france">Bihar</option>
-<option value="germany">Chattisgarh</option>
-<option value="india">Goa</option>
-<option value="india">Gujarat</option>
-<option value="US">Haryana</option>
-<option value="US">HimachalPradesh</option>
-<option value="US">Jharkand</option>
-<option value="US">Karnataka</option>
-<option value="US">Kerala</option>
-<option value="US">MadhyaPradesh</option>
-<option value="US">Maharasthra</option>
-<option value="US">Orrisa</option>
-<option value="US">Punjab</option>
-<option value="US">Rajasthan</option>
-<option value="US">TamilNadu</option>
-<option value="US">Telangana</option>
+<option value="New SouthWales">New SouthWales</option>
+<option value="Victoria">Victoria</option>
+<option value="QueensLand">QueensLand</option>
+<option value="Western Australia">Western Australia</option>
+<option value="AndhraPradesh">AndhraPradesh</option>
+<option value="ArunachalPradesh">ArunachalPradesh</option>
+<option value="Assam">Assam</option>
+<option value="Bihar">Bihar</option>
+<option value="Chattisgarh">Chattisgarh</option>
+<option value="MadhyaPradesh">MadhyaPradesh</option>
+<option value="Maharasthra">Maharasthra</option>
+<option value="Orrisa">Orrisa</option>
+<option value="Punjab">Punjab</option>
+<option value="Rajasthan">Rajasthan</option>
+<option value="TamilNadu">TamilNadu</option>
+<option value="Telangana">Telangana</option>
 </select>
 </td>
 </tr>
@@ -169,10 +153,10 @@
 <td>
 <select  name="secretquestion" >
 <option value="" disabled selected>Select</option>
- <option value="australia">What is the name of town where you were born?</option>
-<option value="canada">What was your first car?</option>
-<option value="denmark">What elementary school did you attend?</option>
-<option value="france">What is the name of your pet?</option>
+ <option value="What is the name of town where you were born?">What is the name of town where you were born?</option>
+<option value="What was your first car?">What was your first car?</option>
+<option value="What elementary school did you attend?">What elementary school did you attend?</option>
+<option value="What is the name of your pet?s">What is the name of your pet?</option>
 </select>
 </td>
 </tr>
@@ -181,11 +165,11 @@
 <tr>
 <td>Answer: </td>
 
-</tr>
+
 <td>
 <form:input path="answer" class="form-control" placeholder="Your answer" />
 <br>
- <form:errors path="answer" cssClass="errors"></form:errors> 
+<form:errors path="answer" cssClass="errors"></form:errors> 
 
 </td>
 </tr>

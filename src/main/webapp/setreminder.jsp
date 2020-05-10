@@ -31,13 +31,19 @@ ${message }
 
 <tr>
 <td>Date :</td>
-<td><form:password path="date" class="form-control" placeholder="yyyy-mm-dd"/>
+<td><form:input type="date" path="date" class="form-control" placeholder="yyyy-mm-dd"/>
 <br>
 <form:errors path="date" cssClass="errors"></form:errors>
 </td>
 </tr>
 
-
+<tr>
+<td>Time :</td>
+<td><form:password path="time" class="form-control" placeholder="HH:mm:ss"/>
+<br>
+<form:errors path="time" cssClass="errors"></form:errors>
+</td>
+</tr>
 
 
 

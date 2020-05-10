@@ -48,7 +48,7 @@
 </tr>
 </table>
 </form>
-For Login?<a href="customerlogin">Login</a>
+For Login?<a href="customer">Login</a>
 </div>
 </div>
 </body>

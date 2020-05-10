@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 
 body
@@ -33,7 +33,7 @@ h1{
 	background-color:light blue;
 	width: 550px;
 	height: auto;
-	text-align: center;
+	
 	border: 0.5px solid purple;
 	border-radius: 15px;
 	margin-left: 20px;
@@ -46,6 +46,7 @@ h1{
 	padding: 10px;
 	 height: 15px;
 	 margin-top: 5px;
+	 width:180px;
 }
 
 a {
@@ -58,11 +59,13 @@ a {
 .formsubmitbutton
 {
 	
-	width: 100px;
-	height:  25px;
-	border-radius: 20px;
+	width: 150px;
+	height:  35px;
+	border-radius: 15px;
 	margin-top: 10px;
 	margin-left: 50px;
+	background-color: lightblue;
+	color: blue;
 	
 
 }
@@ -115,3 +118,76 @@ td
 	color:WHITE;
 	font:50px;
 }
+dropdown
+{
+	font:30px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+label
+{
+	font-size: 25px;
+	color: lightblue
+}
+

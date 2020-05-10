@@ -1,5 +1,8 @@
 package com.bill.billpayment.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,10 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.bill.billpayment.domain.Customerlogin;
+import com.bill.billpayment.domain.Dth;
 import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Vendor;
 import com.bill.billpayment.bo.Vendorservice;
 import com.bill.billpayment.domain.Vendorlogin;
+import com.bill.billpayment.domain.electricity;
 
 @Controller
 @RequestMapping("/")
@@ -72,6 +77,81 @@ model.addAttribute("message", "Invalid Password");
 	}
 }
 		}
+
+@GetMapping("/transactionE")
+public String generatereport(Model model){
+	
+	List<electricity> list=vs.getelectricbills();
+	List<electricity> l1=new ArrayList<electricity>();
+	
+	for(electricity b:list)
+	{
+		if(b.getTransactionstatus().equalsIgnoreCase("success"))
+		{
+	          l1.add(b);
+	    }
+						
+	}
+	
+	
+	model.addAttribute("list",l1);
+	
+	return "GenerateVendorReport";
+}
+@GetMapping("/failE")
+public String generatefailreport(Model model){
+	List<electricity> list=vs.getelectricbills();
+	List<electricity> l2=new ArrayList<electricity>();
+	for(electricity b:list)
+	{
+		
+		if(b.getTransactionstatus().equalsIgnoreCase("failure"))
+		{
+			l2.add(b);
+		}
+				
+	}
+	model.addAttribute("flist",l2);
+	return "GenerateVFailure";
+}
+@GetMapping("/transactionD")
+public String generatereport1(Model model){
+	
+	List<Dth> list=vs.getdthbills();
+	List<Dth> l1=new ArrayList<Dth>();
+	
+	for(Dth b:list)
+	{
+		if(b.getTransactionstatus().equalsIgnoreCase("success"))
+		{
+	          l1.add(b);
+	    }
+						
+	}
+	
+	
+	model.addAttribute("list",l1);
+	
+	return "GenerateVendorReport";
+}
+@GetMapping("/failD")
+public String generatefailreport1(Model model){
+	List<Dth> list=vs.getdthbills();
+	List<Dth> l2=new ArrayList<Dth>();
+	for(Dth b:list)
+	{
+		
+		if(b.getTransactionstatus().equalsIgnoreCase("failure"))
+		{
+			l2.add(b);
+		}
+				
+	}
+	model.addAttribute("flist",l2);
+	return "GenerateVFailure";
+}
+
+
 @GetMapping("/vendorregistration")
 public String userSignUp(Model model,Model secmodel)
 {
@@ -214,5 +294,7 @@ return"ResetPassword";
 	  return "ResetPassword";
 	  }
  }
+ 
+ 
 
 }

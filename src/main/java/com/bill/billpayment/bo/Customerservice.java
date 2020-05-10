@@ -6,7 +6,9 @@ import com.bill.billpayment.domain.Customer;
 import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Security1;
+import com.bill.billpayment.domain.Dth;
 import com.bill.billpayment.domain.Vendor;
+import com.bill.billpayment.domain.electricity;
 
 public interface Customerservice 
 {
@@ -16,8 +18,11 @@ public interface Customerservice
 	
 		public Customer getCustomer(String username);
 		public List<Vendor> getallvendors();
+
 		 public Security1 getSecurity1(String mobile);
 		  public Security1 getSecurity1pwd(String userId); 
 		  public boolean updatePassword(Customer customer);
 		  public Customer getuserdata(String userId);
+		public List<electricity> geElectricities();
+		public List<Dth> getDth();
 }

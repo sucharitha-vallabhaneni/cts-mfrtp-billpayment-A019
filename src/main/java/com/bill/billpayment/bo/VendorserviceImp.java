@@ -1,19 +1,29 @@
 package com.bill.billpayment.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.bill.billpayment.dao.Dthbilldao;
 import com.bill.billpayment.dao.Vendordao;
+import com.bill.billpayment.dao.ebilldao;
+import com.bill.billpayment.domain.Dth;
 import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Vendor;
 import com.bill.billpayment.domain.Vendorlogin;
+import com.bill.billpayment.domain.electricity;
 @Service
 @Component
 public class VendorserviceImp implements Vendorservice
 {
  @Autowired
  private Vendordao vendordao;
+ @Autowired
+private ebilldao edao;
+ @Autowired
+ private Dthbilldao ddao;
 	@Override
 	public int createVendor(Vendor vendor) {
 		Vendor v=vendordao.findByUsername(vendor.getUsername());
@@ -94,6 +104,20 @@ Vendor be1 = vendordao.save(vendor);
 	public Vendor getuserdata(String userId) {
 		
 		return vendordao.getVendor(userId);
+	}
+
+	@Override
+	public List<electricity> getelectricbills() {
+		
+		Iterable<electricity> list=edao.findAll();
+		return (List<electricity>) list;
+	}
+
+	@Override
+	public List<Dth> getdthbills() {
+		
+		Iterable<Dth> list=ddao.findAll();
+		return (List<Dth>) list;
 	}
 
 }

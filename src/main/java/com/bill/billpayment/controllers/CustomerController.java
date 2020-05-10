@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bill.billpayment.domain.Customer;
+
 import com.bill.billpayment.bo.Customerservice;
 import com.bill.billpayment.bo.Recordbillsservice;
+
 import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Recordbills;
 import com.bill.billpayment.domain.Reminders;
@@ -33,6 +35,7 @@ public class CustomerController {
 	private Customerservice cs;
 @Autowired
 private Recordbillsservice rbs;
+
 //displaying customer login page
     	@GetMapping("/customer")
 	public String Customer(Model model)
@@ -287,6 +290,7 @@ return"ResetCPassword";
 	  model.addAttribute("message","new password and conformation are not same"); 
 	  return "ResetCPassword";
 	  }
- }
+ 
 
+ }
 }

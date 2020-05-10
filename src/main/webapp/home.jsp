@@ -14,6 +14,31 @@
 <a href="/admin"> Admin </a>&nbsp&nbsp&nbsp
 <a href="/customer/">Customer </a>&nbsp&nbsp&nbsp
 <a href="/vendor/">Vendor</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+<div class="marquee">
+<p><font color="blue" size="30px">Your Payments in our Hands. Let us make it a little easier.</font></p>
 </div>
 </body>
 </html>

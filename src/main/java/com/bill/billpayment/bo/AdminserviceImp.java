@@ -1,5 +1,6 @@
 package com.bill.billpayment.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,9 +9,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.bill.billpayment.dao.Admindao;
+import com.bill.billpayment.dao.Dthbilldao;
 import com.bill.billpayment.dao.Vendordao;
+import com.bill.billpayment.dao.ebilldao;
 import com.bill.billpayment.domain.Aminlogin;
+import com.bill.billpayment.domain.Dth;
 import com.bill.billpayment.domain.Vendor;
+import com.bill.billpayment.domain.electricity;
 @Service
 @Component
 public class AdminserviceImp implements Adminservice
@@ -19,6 +24,10 @@ public class AdminserviceImp implements Adminservice
 private Admindao adao;
 @Autowired
 private Vendordao vendordao;
+@Autowired
+private ebilldao dao;
+@Autowired
+private Dthbilldao ddao;
 	@Override
 	public boolean login(Aminlogin adminlogin)
 	{
@@ -57,4 +66,20 @@ private Vendordao vendordao;
 		return false;
 	}
 		return true;
-	}	}	
+	}
+	@Override
+	public List<electricity> getelectricbills() {
+		
+		Iterable<electricity> list=dao.findAll();
+		return (List<electricity>) list;
+		
+	}
+	@Override
+	public List<Dth> getdthbills() {
+		Iterable<Dth> list=ddao.findAll();
+		return (List<Dth>) list;
+		
+	}
+	
+			
+}
