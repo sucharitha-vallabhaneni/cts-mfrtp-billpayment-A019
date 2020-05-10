@@ -7,5 +7,5 @@ public interface Gpayservice
 {
 	public boolean verify(Gpay gpay);
 	public boolean status(String billnumber);
-	public boolean dstatus(String billnumber);
+	
 }

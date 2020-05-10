@@ -20,6 +20,7 @@ public class CreditserviceImp implements Creditservice
 private Creditdao creditdao;
 @Autowired
 private ebilldao edao;
+
 	@Override
 	public boolean verify(Credit credit) {
 		Optional<Credit> al=creditdao.findById(credit.getCardnumber());
@@ -45,5 +46,8 @@ private ebilldao edao;
 	}
 		return true;
 		}
+
+	
+
 	}
 	

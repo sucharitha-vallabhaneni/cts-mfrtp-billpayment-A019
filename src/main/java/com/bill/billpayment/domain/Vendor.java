@@ -55,7 +55,9 @@ public class Vendor
 	@Column
 	private Date cvd;
 @Column
-	private int establishedyear;
+	private Date establishedyear;
+	
+
 	@Column(unique = true)
 	   @NotEmpty(message = "password should not  be empty")
 	private String password;
@@ -131,7 +133,13 @@ public class Vendor
 	public void setWebsite(String website) {
 		this.website = website;
 	}
+	public Date getEstablishedyear() {
+		return establishedyear;
+	}
 
+	public void setEstablishedyear(Date establishedyear) {
+		this.establishedyear = establishedyear;
+	}
 	public String getPassword() {
 		return password;
 	}
@@ -204,13 +212,7 @@ public class Vendor
 		this.cvd = cvd;
 	}
 
-	public int getEstablishedyear() {
-		return establishedyear;
-	}
-
-	public void setEstablishedyear(int establishedyear) {
-		this.establishedyear = establishedyear;
-	}
+	
 
 	public void setCid(Date cid) {
 		this.cid = cid;

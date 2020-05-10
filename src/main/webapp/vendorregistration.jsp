@@ -110,7 +110,7 @@
 <td>Year of Establishment :</td>
 <td>
 
-<form:input path="establishedyear" class="form-control"/>
+<form:input type="date" path="establishedyear" class="form-control"/>
 <br>
  <form:errors path="establishedyear" cssClass="errors"></form:errors> 
 </td>

@@ -8,4 +8,4 @@ public interface Creditservice
 {
 	public boolean verify(Credit credit);
 	public boolean status(String billnumber);
-}
+	}
