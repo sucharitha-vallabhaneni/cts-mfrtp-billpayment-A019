@@ -21,6 +21,11 @@ ${message }
 <form:form  action="verify" method="post" modelAttribute="verifypay" style="margin-top:50px;">
 <table>
 <tr>
+<td align="left" style="width:10rem;padding: 5px; margin-left: 0;">Bill Number</td>
+<td><input type="text" name="bil" value="${billno}"></td>
+
+</tr>
+<tr>
 <td>Card Number :</td>
 <td>
 <form:input required="required" path="cardnumber" class="form-control"/>

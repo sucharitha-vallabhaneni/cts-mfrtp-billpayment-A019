@@ -1,29 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <!DOCTYPE html>
-<html>
+     <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" type="text/css" href="/cusstyle.css">
+
 </head>
 <body>
-<h1>CUSTOMER - BILL PAYMENT</h1>
-<div class="header">
-<h1>Welcome</h1>
-
-<h2>${success}</h2>
-
-<ul class="b">
-<li><a href="electricity" class="a1">ELECTRICITY</a></li>&nbsp
-
-<li><a href="" class="a1">WATER</a></li>&nbsp
-
-<li><a href="" class="a1">GAS</a></li>&nbsp
-
-<li><a href="" class="a1">BILL HISTORY</a></li>&nbsp
-
+<h1>CUSTOMER - BILL PAYMENT HOME PAGE</h1>
+<div class="navbar">
+  <a href="backtohome">Home</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">PAY BILLS 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="electricity">ELECTRICITY</a>
+      <a href="dth">DTH</a>
+     
+    </div>
+    
+    
+  </div> 
+  
+  
+  <div class="dropdown">
+    <button class="dropbtn">BILL HISTORY
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="ebillhistory">ELECTRICITY</a>
+      <a href="dthbillhistory">DTH</a>
+      
+    </div>
 </div>
-<a href="backtohome">Back</a>
+
+
 </body>
 </html>
+     

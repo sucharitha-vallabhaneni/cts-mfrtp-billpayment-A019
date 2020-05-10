@@ -13,21 +13,18 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bill.billpayment.domain.Customer;
-import com.bill.billpayment.bo.Creditservice;
+
 import com.bill.billpayment.bo.Customerservice;
 import com.bill.billpayment.bo.Recordbillsservice;
-import com.bill.billpayment.bo.ebillservice;
+
 import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Feedbackquestions;
 import com.bill.billpayment.domain.Help;
 import com.bill.billpayment.domain.Recordbills;
 import com.bill.billpayment.domain.Reminders;
 import com.bill.billpayment.domain.Vendor;
-import com.bill.billpayment.domain.Credit;
-import com.bill.billpayment.domain.electricity;
 
 @Controller
 
@@ -36,10 +33,7 @@ public class CustomerController {
 	private Customerservice cs;
 @Autowired
 private Recordbillsservice rbs;
-@Autowired
-private ebillservice ebs;
-@Autowired
-private Creditservice credits;
+
 //displaying customer login page
     	@GetMapping("/customer")
 	public String Customer(Model model)
@@ -194,6 +188,7 @@ private Creditservice credits;
 		model.addAttribute("reminder",rem);
 		return "setreminder";
 	}
+<<<<<<< HEAD
 	//for redirecting to bill payment home page
 	@GetMapping("billpayhome")
 	public String billhomepage(Model model)
@@ -339,3 +334,6 @@ private Creditservice credits;
 
 	}	
 
+=======
+}
+>>>>>>> 14dccf5f49eee87887066d9658d4dca137834b29

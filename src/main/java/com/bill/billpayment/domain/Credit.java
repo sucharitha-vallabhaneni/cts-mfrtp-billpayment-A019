@@ -21,6 +21,7 @@ private String cardnumber;
 	
 	@Column
 	private String cvv;
+	
 	public String getCardnumber() {
 		return cardnumber;
 	}

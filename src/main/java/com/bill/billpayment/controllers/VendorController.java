@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+<<<<<<< HEAD
 import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Help;
 import com.bill.billpayment.domain.Recordbills;
+=======
+>>>>>>> 14dccf5f49eee87887066d9658d4dca137834b29
 import com.bill.billpayment.domain.Vendor;
 
 import com.bill.billpayment.bo.Vendorservice;
