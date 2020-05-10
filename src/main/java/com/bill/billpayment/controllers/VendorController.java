@@ -6,25 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-<<<<<<< HEAD
-import com.bill.billpayment.domain.Customerlogin;
+
+
 import com.bill.billpayment.domain.Help;
-import com.bill.billpayment.domain.Recordbills;
-=======
->>>>>>> 14dccf5f49eee87887066d9658d4dca137834b29
+
 import com.bill.billpayment.domain.Vendor;
 
 import com.bill.billpayment.bo.Vendorservice;
-import com.bill.billpayment.dao.Vendordao;
 import com.bill.billpayment.domain.Vendorlogin;
 
 @Controller
