@@ -33,7 +33,7 @@
     <div class="dropdown-content">
       <a href="ebillhistory">ELECTRICITY</a>
       <a href="dthbillhistory">DTH</a>
-      
+      <a href="recbillhistoty">RECORDED BILLS</a>
     </div>
 </div>
 

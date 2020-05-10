@@ -6,18 +6,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>StockReport</title>
-<link rel="stylesheet" type="text/css" href="/style3.css"/>
+<h1>Successful Transactions Report</h1>
+<a href="vendorportal.jsp"> Back</a>
+<link rel="stylesheet" type="text/css" href="/cusstyle2.css"/>
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
 <div class="nav">
-	<h1>Success Transactions Report</h1>
 	
-	<a href="adminlogout"><i class="fa fa-power-off"></i> Logout</a>	
+	
+		
 </div>
-<h2>Successful Transactions</h2>
+
 <div class="formdata">
-<table>
+<table border="2" align="center">
 	<tr>
 	<th>
 	Bill Id

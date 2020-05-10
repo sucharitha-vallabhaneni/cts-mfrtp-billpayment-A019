@@ -206,7 +206,7 @@
 
 </div>
 
-<a href="/">Home</a>
+<a href="vendorportal.jsp">Home</a>
 </div>
 
 </body>

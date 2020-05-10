@@ -16,8 +16,16 @@ public class HelpServicesImpl implements HelpService {
     private HelpDao hdao;
 	@Override
 	public List<Help> helplist() {
-		
+	
 		return hdao.findAll();
-	} 
-
+	}
+	@Override
+	public int savehelp(Help help) {
+		Help h1=hdao.save(help);
+		if(h1==null)
+		{
+			return 1;
+		}
+		return 2;
+	}
 }

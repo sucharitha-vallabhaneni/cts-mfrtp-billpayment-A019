@@ -20,6 +20,7 @@ import com.bill.billpayment.domain.Credit;
 import com.bill.billpayment.domain.Customer;
 import com.bill.billpayment.bo.Creditservice;
 import com.bill.billpayment.bo.Customerservice;
+import com.bill.billpayment.bo.HelpService;
 import com.bill.billpayment.bo.Recordbillsservice;
 import com.bill.billpayment.bo.ebillservice;
 import com.bill.billpayment.domain.Customerlogin;
@@ -43,6 +44,8 @@ private Recordbillsservice rbs;
 private ebillservice ebs;
 @Autowired
 private Creditservice credits;
+@Autowired
+private HelpService hs;
 //displaying customer login page
     	@GetMapping("/customer")
 	public String Customer(Model model)
@@ -353,22 +356,23 @@ return"ResetCPassword";
 			}
 			else
 			{
-				int status=cs.help(h);
-				if(status==1)
-				{
-					model.addAttribute("message","your issue is registered");
+				int status=hs.savehelp(h);
+				 if(status==1)
+					{
+						model.addAttribute("success", "Congrats your Issue has been recorded  successfully");
+					      
+					
+					}
+					
+					
+					 model.addAttribute("message", "Congrats your Issue has been recorded  successfully");
 					return "CusHelp";
-				}
-				else
-				{
-					model.addAttribute("message","Something went wrong");
-					return "failure";
-				}
+					}
 			}
 		
 
 	}	
 
-}
+
 
 

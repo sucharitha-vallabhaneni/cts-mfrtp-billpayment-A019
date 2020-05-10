@@ -21,9 +21,9 @@ ${message }
 <div class="forms-data">
 <form:form action="/adminlogin" method="post" modelAttribute="admin" style="margin-top:50px;">
 
-<table>
+<table align="center">
 <tr>
-<td>User Name :</td>
+<td align="left" style="width:10rem;padding: 5px; margin-left: 0;">User Name</td>
 <td>
 
 <form:input path="username" class="form-control"/>
@@ -33,7 +33,7 @@ ${message }
 </tr>
 
 <tr>
-<td>Password :</td>
+<td align="left" style="width:10rem;padding: 5px; margin-left: 0;">Password</td>
 <td><form:password path="password" class="form-control"/>
 <br>
 <form:errors path="password" cssClass="errors"></form:errors>

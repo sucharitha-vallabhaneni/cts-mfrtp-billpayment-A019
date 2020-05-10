@@ -3,22 +3,21 @@ package com.bill.billpayment.bo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
+
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.bill.billpayment.dao.Customerdao;
 
 import com.bill.billpayment.dao.HelpDao;
+import com.bill.billpayment.dao.Recordbillsdao;
 import com.bill.billpayment.dao.Vendordao;
 import com.bill.billpayment.dao.feedbackdao;
 import com.bill.billpayment.domain.Customer;
 import com.bill.billpayment.domain.Customerlogin;
-import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Security1;
 import com.bill.billpayment.domain.Feedbackquestions;
-import com.bill.billpayment.domain.Help;
-
+import com.bill.billpayment.domain.Recordbills;
 import com.bill.billpayment.dao.Dthbilldao;
 import com.bill.billpayment.dao.ebilldao;
 
@@ -47,6 +46,8 @@ public class CustomerserviceImp implements Customerservice
 private ebilldao edao;
 @Autowired
 private Dthbilldao ddao;
+@Autowired
+private Recordbillsdao recbildao;
 
 	@Override
 	public int createCustomer(Customer customer) 
@@ -130,17 +131,7 @@ private Dthbilldao ddao;
 	}
 		return 0;
 	}
-	@Override
-	public int help(Help h) {
-		Help h1=hdao.save(h);
-		if(h1!=null) {
-		return 1;
-		}
-		else
-		{
-			return 2;
-		}
-		}
+	
 	public List<electricity> geElectricities() {
 		
 		return edao.findAll();
@@ -150,6 +141,10 @@ private Dthbilldao ddao;
 		
 		return ddao.findAll();
 
+	}
+	@Override
+	public List<Recordbills> getrecbills() {
+		return recbildao.findAll();
 	}
 
 }

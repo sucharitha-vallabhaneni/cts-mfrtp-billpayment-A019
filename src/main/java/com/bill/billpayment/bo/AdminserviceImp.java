@@ -30,6 +30,7 @@ private Vendordao vendordao;
 private ebilldao dao;
 @Autowired
 private Dthbilldao ddao;
+@Autowired
 private HelpDao hdao;
 	@Override
 	public boolean login(Aminlogin adminlogin)

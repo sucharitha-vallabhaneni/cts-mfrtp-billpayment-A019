@@ -9,23 +9,25 @@
 <link rel="stylesheet" type="text/css" href="/style1.css"/>
 </head>
 <body>
+<h1 >CUSTOMER  FEEDBACK</h1> 
+<a href="customerportal.jsp" >BACK</a>
 <%
 String username =(String) session.getAttribute("username");
 
 %>
 <div class="header"/>
-<h1>BillPayement</h1>
+
 </div>
-<h2>Customer Feedback</h2>
+
 <div align="center">
 <form:form onsubmit="return validate()" action="feedbackques" modelAttribute="feedbk" method="post">
-<table border="2">
+<font size="4"><table border="2" style="width:70%">
 
-Enter Your Name:
+ 
 <form:input path="username" id="username"></form:input>
 <tr>
-<td>Questions</td><td>Agree</td><td>Disagree</td><td>StronglyAgree</td><td>StronglyDisagree</td><td>NeitherNorAgree</td></tr><tr>
-<td>Information on the website is clear and easy to understand:</td>
+<td style="height:50px">Questions</td><td>Agree</td><td>Disagree</td><td>StronglyAgree</td><td>StronglyDisagree</td><td>NeitherNorAgree</td></tr><tr>
+<td style="height:50px">Is Information on the website  clear and easy to understand ?</td>
 <td><form:radiobutton path="ans1" value="agree" id="ans1" /></td>
 <td>
 <form:radiobutton path="ans1" value="disagree" id="ans1" /></td>
@@ -37,7 +39,7 @@ Enter Your Name:
 <form:radiobutton path="ans1" value="Neithernoragree" id="ans1" /></td>
 </tr>
 <tr>
-<td>I can easily find what iam looking for on the website:</td>
+<td style="height:50px"> Can u easily find what you are looking for on the website ?</td>
 <td><form:radiobutton path="ans2" value="agree" id="ans2" /></td>
 <td>
 <form:radiobutton path="ans2" value="disagree" id="ans2" /></td>
@@ -49,7 +51,7 @@ Enter Your Name:
 <form:radiobutton path="ans2" value="Neithernoragree" id="ans2" /></td>
 </tr>
 <tr>
-<td>The website includes all of the information i need:</td>
+<td style="height:50px">Does the website includes all information u needed ?</td>
 <td><form:radiobutton path="ans3" value="agree" id="ans3" /></td>
 <td>
 <form:radiobutton path="ans3" value="disagree" id="ans3" /></td>
@@ -61,7 +63,7 @@ Enter Your Name:
 <form:radiobutton path="ans3" value="Neithernoragree" id="ans3" /></td>
 </tr>
 <tr>
-<td>The website works well technically loading quicly and displaying appropriatley:</td>
+<td style="height:50px">Does The website works well technically loading quicly and displaying appropriatley ?</td>
 <td><form:radiobutton path="ans4" value="agree" id="ans4" /></td>
 <td>
 <form:radiobutton path="ans4" value="disagree" id="ans4" /></td>
@@ -73,7 +75,7 @@ Enter Your Name:
 <form:radiobutton path="ans4" value="Neithernoragree" id="ans4" /></td>
 </tr>
 <tr>
-<td>The website meets my needs:</td>
+<td style="height:50px">Does The website meets your's needs ?</td>
 <td><form:radiobutton path="ans5" value="agree" id="ans5" /></td>
 <td>
 <form:radiobutton path="ans5" value="disagree" id="ans5" /></td>
@@ -85,12 +87,16 @@ Enter Your Name:
 <form:radiobutton path="ans5" value="Neithernoragree" id="ans5" /></td>
 </tr>
 </table>
-<input type="submit" value ="submit"/>
-<a href="customerportal.jsp" >BACK</a>
+</font>
+<br>
+
+<input type="submit" value ="Submit"/>
+
 </form:form>
 </div>
 <br><br>
-${message }
+
+<p1>${message }</p1>
 </body>
 
 </html>

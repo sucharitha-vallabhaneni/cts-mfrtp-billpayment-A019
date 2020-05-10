@@ -13,15 +13,7 @@
 
 </head>
 <body>
-<%
-String username=(String)session.getAttribute("adminusername");
-%>
-<div class="header1">
-<span class="welcome">Bill Payment</span>
-<span class="headerlogo">Welcome, <%=username %></span>
-
-
-</div>
+<h1>BILL PAYMENT-ADMIN PORTAL</h1>
 
 
 
@@ -53,7 +45,7 @@ String username=(String)session.getAttribute("adminusername");
       </div>
   </div> 
   </div>
-  <a href="#">Report issues</a>
+  <a href="viewissues">View issues</a>
   <a href="/">Logout</a>
 </div>
 

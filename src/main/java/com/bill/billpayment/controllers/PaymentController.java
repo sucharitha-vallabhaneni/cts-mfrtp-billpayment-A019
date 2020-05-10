@@ -29,6 +29,7 @@ import com.bill.billpayment.domain.Dth;
 import com.bill.billpayment.domain.Dthcredit;
 import com.bill.billpayment.domain.Dthgpay;
 import com.bill.billpayment.domain.Gpay;
+import com.bill.billpayment.domain.Recordbills;
 import com.bill.billpayment.domain.electricity;
 
 @Controller
@@ -355,7 +356,15 @@ public class PaymentController {
 			model.addAttribute("dbill",dlist);
 			return "dthbillhistory";
 		}
+		//recorded bills history
+		@GetMapping("recbillhistoty")
+		public String recbdisplay(HttpSession session,Model model)
+		{
+			List<Recordbills> rlist=cs.getrecbills();
+			model.addAttribute("rbill",rlist);
+			return "recbillhistory";
 	}
+}
 
 
 

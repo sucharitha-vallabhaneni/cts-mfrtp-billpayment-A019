@@ -4,11 +4,11 @@ import java.util.List;
 
 import com.bill.billpayment.domain.Customer;
 import com.bill.billpayment.domain.Customerlogin;
-import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Security1;
 
 import com.bill.billpayment.domain.Feedbackquestions;
-import com.bill.billpayment.domain.Help;
+
+import com.bill.billpayment.domain.Recordbills;
 import com.bill.billpayment.domain.Dth;
 
 import com.bill.billpayment.domain.Vendor;
@@ -28,10 +28,11 @@ public interface Customerservice
 		  public boolean updatePassword(Customer customer);
 		  public Customer getuserdata(String userId);
 		int CreateFeedback(Feedbackquestions fq);
-		int help(Help h);
+		
 	
 
 		public List<electricity> geElectricities();
 		public List<Dth> getDth();
+		public List<Recordbills> getrecbills();
 
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession; 
 
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Dth;
 import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Vendor;
@@ -24,8 +22,7 @@ import com.bill.billpayment.domain.Vendor;
 
 import com.bill.billpayment.domain.Help;
 
-import com.bill.billpayment.domain.Vendor;
-
+import com.bill.billpayment.bo.HelpService;
 import com.bill.billpayment.bo.Vendorservice;
 import com.bill.billpayment.domain.Vendorlogin;
 import com.bill.billpayment.domain.electricity;
@@ -36,6 +33,8 @@ public class VendorController
 {
 @Autowired
 private Vendorservice vs;
+@Autowired
+private HelpService hs;
 @GetMapping("/vendor")
 public String Vendor(Model model)
 {
@@ -221,7 +220,7 @@ public String vendorupdatepage(Model model,HttpSession session)
 	
 	
 	Vendor vendor = vs.getVendor(vendorid);
-	System.out.println(vendor);
+
 	model.addAttribute("edit",vendor);
 	return "edit";
 }
@@ -350,19 +349,20 @@ public String help1(@ModelAttribute("help") Help h,BindingResult result,Model mo
 	}
 	else
 	{
-		int status=vs.help(h);
+		int status=hs.savehelp(h);
 		if(status==1)
 		{
-			model.addAttribute("message","your issue is registered");
-			return "VenHelp";
+			model.addAttribute("success", "Congrats your Issue has been recorded  successfully");
+		      
+		
 		}
-		else
-		{
-			model.addAttribute("message","Something went wrong");
-			return "failure";
+		
+		
+		 model.addAttribute("message", "Congrats your Issue has been recorded  successfully");
+		return "CusHelp";
 		}
 	}
 }
 
-}  
+
 

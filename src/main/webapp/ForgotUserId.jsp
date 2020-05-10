@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Login</title>
-<link rel="stylesheet" type="text/css" href="/style6.css"/>
+<link rel="stylesheet" type="text/css" href="/cusstyle1.css"/>
 </head>
 <body>
 <div class="header1" align="center">
@@ -14,8 +14,9 @@
 </div>
 <div align="center">
 <div class="formsdata">
-<form action="/getUserId" method="post">
+<form action="/getUserId" method="post" >
 <table>
+
 <tr>
 <td>Contact Number:</td>
 <td>
@@ -25,7 +26,7 @@
 <tr>
 <td>Select Question:</td>
 <td>
-<select  name="secretquestion" >
+<select  style="width:10rem;padding: 5px;" name="secretquestion" >
 <option value="" disabled selected>Select</option>
  <option value="australia">What is the name of town where you were born?</option>
 <option value="canada">What was your first car?</option>
@@ -35,7 +36,7 @@
 </td>
 </tr>
 <tr>
-<td>Enter answer:</td>
+<td >Enter answer:</td>
 <td><input type="text" name="answer" placeholder="Answer" class="formcontrol">
 <br>
 <span>${message}</span>
@@ -48,7 +49,7 @@
 </tr>
 </table>
 </form>
-For Login?<a href="vendor">Login</a>
+<a href="vendor">Login</a>
 </div>
 </div>
 </body>

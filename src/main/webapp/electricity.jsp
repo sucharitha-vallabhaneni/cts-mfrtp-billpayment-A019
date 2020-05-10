@@ -135,10 +135,10 @@ ${message }
 <div align="center">
 <div class="forms-data">
 <form:form action="ebillsave" method="post" modelAttribute="electricity" style="margin-top:50px;">
-<table >
+<table  >
 
 <tr>
-<td align="left" style="width:10rem;padding: 5px; margin-left: 0;">Bill Number:</td>
+<td align="left" style="width:10rem;padding: 0px; margin-left: 0 ;padding-left:10px;">Bill Number:</td>
 <td>
 <form:input path="billnumber"  class="form-control" />
 <br>

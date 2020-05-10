@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Forgot Password</title>
-<link rel="stylesheet" type="text/css" href="/style5.css"/>
+<link rel="stylesheet" type="text/css" href="/cusstyle1.css"/>
 </head>
 <body>
 <div class="header1" align="center">
@@ -14,17 +14,17 @@
 <div align="center">
 <div class="formdata">
 <form action="getcpwd" method="post">
-<table>
+<table >
 <tr>
-<td>Enter UserName:</td>
+<td align="right" style="width:10rem;padding: 5px; margin-left: 0;">Enter UserName:</td>
 <td>
-<input type="text" name="username" class="formcontrol">
+<input align="left" style="width:10rem;padding: 5px; margin-left: 0;"type="text" name="username" class="formcontrol">
 </td>
 </tr>
 <tr>
-<td>Select question:</td>
+<td align="right" style="width: 200px;height: 50px;">Select question:</td>
 <td>
-<select  name="secretquestion" >
+<select style="width:10rem;padding: 5px;" name="secretquestion" >
 <option value="" disabled selected>Select</option>
  <option value="australia">What is the name of town where you were born?</option>
 <option value="canada">What was your first car?</option>
@@ -35,8 +35,8 @@
 </td>
 </tr>
 <tr>
-<td>Enter answer:</td>
-<td><input type="text" name="answer" class="formcontrol">
+<td align="right" style="width:10rem;padding: 5px; margin-left: 0;">Enter answer:</td>
+<td><input align="left" style="width:10rem;padding: 5px; margin-left: 0;"type="text" name="answer" class="formcontrol">
 <br>
 <span>${message}</span>
 </td>
@@ -48,7 +48,7 @@
 </tr>
 </table>
 </form>
-For Login?<a href="customer">Login</a>
+<a href="customer">Login</a>
 </div>
 </div>
 </body>

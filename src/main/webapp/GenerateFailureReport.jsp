@@ -6,7 +6,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>StockReport</title>
-<link rel="stylesheet" type="text/css" href="/style3.css"/>
+<link rel="stylesheet" type="text/css" href="/style1.css">
+
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
@@ -18,13 +19,13 @@ if(userid==null)
 }
 %>
 <div class="nav">
-	<h1>Failure Transactions Report</h1>
+	<h1> Failed Transactions Report</h1>
 	
-	<a href="adminlogout"><i class="fa fa-power-off"></i> Logout</a>	
+	<a href="adminlogout"> Back</a>	
 </div>
-<h2>Failure  Transactions</h2>
+
 <div class="formdata">
-<table>
+<table border="2" align="center">
 	<tr>
 	<th>
 	Bill Id

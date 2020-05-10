@@ -5,19 +5,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>StockReport</title>
-<link rel="stylesheet" type="text/css" href="/style3.css"/>
+<title>Report</title>
+<h1>Failed Transactions Report</h1>
+<a href="vendorportal.jsp"> BACK</a>	
+<link rel="stylesheet" type="text/css" href="/cusstyle2.css"/>
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
 <div class="nav">
-	<h1>Failure Transactions Report</h1>
 	
-	<a href="adminlogout"><i class="fa fa-power-off"></i> Logout</a>	
+	
+	
 </div>
-<h2>Failure Transactions</h2>
+
 <div class="formdata">
-<table>
+<table border="2" align="center">
 	<tr>
 	<th>
 	Bill Id
@@ -27,13 +29,13 @@
 	</th>
 	
 	</tr>
-	<c:forEach items="${list}" var="electric">
+	<c:forEach items="${flist}" var="dth">
 	
 	
 	<tr>
 	<!-- <td><i class="fa fa-plus-square" aria-hidden="false"></i></td> -->
-	<td>${electric.id}</td>
-	<td>${electric.amount}</td>
+	<td>${dth.id}</td>
+	<td>${dth.amount}</td>
 	
 	</tr>
 	

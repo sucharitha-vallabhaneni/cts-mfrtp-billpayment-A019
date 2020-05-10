@@ -26,8 +26,8 @@
 <th>email</th>
 <th>mobile</th>
 <th>website</th>
-<th>Cid</th>
-<th>cvd</th>
+<th>Certificate Issued Date</th>
+<th>Certificate Validity Date</th>
 <th>establishedyear</th>
 </tr>
 

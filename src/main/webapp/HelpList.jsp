@@ -10,23 +10,26 @@
 </head>
 <body>
 <h1>Welcome</h1>
+<a href="adminportal.jsp">BACK</a>
 <div class="header"></div>
 <div align="center">
 
 <table border="1">
 <tr>
-<th>ReportId</th>
+<th>ReporterId</th>
 <th>Issue</th>
 <th>Description</th>
 <th>Status</th>
+<!--  <th>resolve</th>-->
 </tr>
 
-<c:forEach items="${helplist}" var="helplist_details">
+<c:forEach items="${helplist}" var="help">
    <tr>
-   <td>${helplist_details.userId}</td>
-   <td>${helplist_details.issue}</td>
-   <td>${helplist_details.description}</td>
-   <td>${helplist_details.status}</td>
+   <td>${help.userId}</td>
+   <td>${help.issue}</td>
+   <td>${help.description}</td>
+   <td>${help.status}</td>
+   <!--  <td><a href="resolve?id=${help.userId}"><button>Resolve</button></a></td>-->
    </tr>
 </c:forEach>
 </table>

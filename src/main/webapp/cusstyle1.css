@@ -111,14 +111,14 @@ input:invalid{
 }
 table
 {
-	width:90%;
+	width:50%;
 }
 
 th
 {
 	font:20px;
 	
-	height:30px;
+	height:50px;
 }
 tr
 {
@@ -129,8 +129,8 @@ tr
 }
 td
 {
-	color:WHITE;
-	font:60px;
+	color:FloralWhite;
+	font:30px;
 	
   height: 40px;
   vertical-align: center;
@@ -146,12 +146,12 @@ body {
 
 .navbar {
   overflow: hidden;
-  background-color: solid grey;
+  background-color: #333;
 }
 
 .navbar a {
   float: left;
-  font-size: 25px;
+  font-size: 16px;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -164,7 +164,7 @@ body {
 }
 
 .dropdown .dropbtn {
-  font-size: 25px;  
+  font-size: 16px;  
   border: none;
   outline: none;
   color: white;
@@ -175,7 +175,7 @@ body {
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: green;
+  background-color: red;
 }
 
 .dropdown-content {

@@ -20,6 +20,7 @@ h1{
 	
 	font-size: 40px;
 	color:lightblue;
+
 }
 
 .header1
@@ -29,6 +30,12 @@ h1{
 	padding: 5px;
 	color:light blue;
 	
+}
+input[type=submit] {
+    width: 5em;  height: 3em;
+    font-size: 15px;
+    font-color:blue;
+    
 }
 
 .forms-data
@@ -56,6 +63,7 @@ a
 	color: white;
 	text-decoration: none;
 	padding: 2px;
+	font-size: 25px;
 }
 .formsubmitbutton
 {
@@ -81,7 +89,7 @@ li {
 
 li a:hover{
 	color: yellow;
-	font-size: 22px;
+	font-size: 30px;
 	
 }
 form-controls
@@ -104,18 +112,28 @@ input:invalid{
 	 
 	font-size: 22px;
 }
-
+table
+{
+	width: 30%;
+}
+th
+{
+	height:30px;
+}
 tr
 {
 	border: 1px solid white;
 	color:pink;
-	font:15px;
+	font:25px;
+	text-align:center;
 	
+	height:30px;
 }
 td
 {
 	color:pink;
 	font:50px;
+	font-size: 20px;
 }
 
 .welcome
@@ -139,12 +157,12 @@ td
 
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: solid grey;
 }
 
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size: 25px;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -157,7 +175,7 @@ td
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;  
+  font-size:25px;  
   border: none;
   outline: none;
   color: white;
@@ -168,7 +186,7 @@ td
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: green;
 }
 
 .dropdown-content {
@@ -195,4 +213,16 @@ td
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+p1
+{
+	font-size: 20px;
+	color: red;
+	
+}
+p2
+{
+	font-size: 30px;
+	color: green;
+	
 }

@@ -6,18 +6,20 @@
 <meta charset="ISO-8859-1">
 <title>vendor Help</title>
 <link rel="stylesheet" type="text/css" href="/style1.css">
+<h1 >Report an issue here</h1>
+<a href="vendorportal.jsp" class="a1">BACK</a>
 </head>
 <body>
 <div class="header">
-<h1>Welcome <span><%=session.getAttribute("username")%></span></h1>
+
 <ul class="a">
-<li><a href="beforehelp1" class="a1">Help</a></li>
-<li><a href="/" class="a1">Logout</a></li>
+
+
 </ul>
 </div>
  <div class="formdata1">
 <div align="center">
-<h2>Report an issue here</h2>
+
 <form action="afterhelp1" method="post" modelAttribute="help">
 <table>
 <tr>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Forgot Password</title>
-<link rel="stylesheet" type="text/css" href="/style5.css"/>
+<link rel="stylesheet" type="text/css" href="cusstyle1.css"/>
 </head>
 <body>
 <div class="header1" align="center">
@@ -24,7 +24,7 @@
 <tr>
 <td>Select question:</td>
 <td>
-<select  name="secretquestion" >
+<select  style="width:10rem;padding: 5px;" name="secretquestion" >
 <option value="" disabled selected>Select</option>
  <option value="australia">What is the name of town where you were born?</option>
 <option value="canada">What was your first car?</option>
@@ -48,7 +48,7 @@
 </tr>
 </table>
 </form>
-For Login?<a href="/vendor">Login</a>
+<a href="/vendor">Login</a>
 </div>
 </div>
 </body>

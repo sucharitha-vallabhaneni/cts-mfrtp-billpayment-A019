@@ -1,28 +1,28 @@
 @charset "ISO-8859-1";
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 
 
 body
 {
-	width:auto;
+	width:100%;
 	height:auto;
-	margin: 50;
+	margin: 0;
 	padding: 0;
-	background:url(cus.jpg);
-	color:solid Black;
+	background-image:url(add.jpg);
+	background-repeat:none;
+	background-size:cover;
+	color:solid Blue;
 	font-family: 'Roboto Condensed', sans-serif;
+	
 }
 h1{
 	
 	font-size: 40px;
 	color:lightblue;
+
 }
-h2
-{
-	color: pink;
-	font-size: 20px;
-}
+
 .header1
 {
 	width: 100%;
@@ -31,14 +31,20 @@ h2
 	color:light blue;
 	
 }
+input[type=submit] {
+    width: 5em;  height: 3em;
+    font-size: 15px;
+    font-color:blue;
+    
+}
 
 .forms-data
 {
 	background-color:light blue;
-	width: 550px;
+	width: 400px;
 	height: auto;
-	
-	border: 0.5px solid purple;
+	text-align: center;
+	border: 2px solid blue;
 	border-radius: 15px;
 	margin-left: 20px;
 	color:blue;
@@ -50,26 +56,23 @@ h2
 	padding: 10px;
 	 height: 15px;
 	 margin-top: 5px;
-	 width:180px;
 }
 
-a {
-	
+a
+{
+	color: white;
 	text-decoration: none;
-	
+	padding: 2px;
 	font-size: 25px;
-	color:INDIANRED;
 }
 .formsubmitbutton
 {
 	
-	width: 150px;
-	height:  35px;
-	border-radius: 15px;
+	width: 100px;
+	height:  25px;
+	border-radius: 20px;
 	margin-top: 10px;
 	margin-left: 50px;
-	background-color: lightblue;
-	color: blue;
 	
 
 }
@@ -86,7 +89,7 @@ li {
 
 li a:hover{
 	color: yellow;
-	font-size: 22px;
+	font-size: 30px;
 	
 }
 form-controls
@@ -111,13 +114,10 @@ input:invalid{
 }
 table
 {
-	width:90%;
+	width: 30%;
 }
-
 th
 {
-	font:20px;
-	
 	height:30px;
 }
 tr
@@ -125,24 +125,35 @@ tr
 	border: 1px solid white;
 	color:pink;
 	font:25px;
-	text-align: center;
+	text-align:center;
+	
+	height:30px;
 }
 td
 {
-	color:WHITE;
-	font:60px;
-	
-  height: 40px;
-  vertical-align: center;
+	color:pink;
+	font:50px;
+	font-size: 20px;
 }
 
-dropdown
+.welcome
 {
-	font:30px;
+	color: white;
+	font-size: 25px;
+	font-weight: bolder;
+	
+	padding-left: 50px;
 }
-body {
-  font-family: Arial, Helvetica, sans-serif;
+.headerlogo
+{
+	color: white;
+	font-size: 25px;
+	font-weight: bolder;
+	text-align: center;
+	padding-left: 50px;
+	margin-left: 650px;
 }
+
 
 .navbar {
   overflow: hidden;
@@ -164,7 +175,7 @@ body {
 }
 
 .dropdown .dropbtn {
-  font-size: 25px;  
+  font-size:25px;  
   border: none;
   outline: none;
   color: white;
@@ -203,9 +214,3 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-label
-{
-	font-size: 25px;
-	color: lightblue
-}
-

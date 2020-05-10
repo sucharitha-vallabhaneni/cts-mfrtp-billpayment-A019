@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bill.billpayment.bo.Adminservice;
 import com.bill.billpayment.domain.Aminlogin;
@@ -159,13 +160,7 @@ public String generatefailreport1(Model model){
 }
 
 
-@GetMapping("/helpreq")
-public String showList(Model model,HttpSession session)
-{
-	List<Help> helpList=as.getallhelpList();
-	model.addAttribute("helplist", helpList);
-	return "HelpList";
-}
+
 @GetMapping("/back")
 public String returntohome(Model model)
 {
@@ -175,7 +170,17 @@ public String returntohome(Model model)
 @GetMapping("/adminlogout")
 public String logout(HttpSession session) {
 	
-	session.invalidate();
-	return "home";
+
+	return "adminportal";
 }
+//for viewing issues
+@GetMapping("viewissues")
+public String displayissues(Model model)
+{
+	List<Help> helpList=as.getallhelpList();
+	model.addAttribute("helplist", helpList);
+	return "HelpList";
+}
+
+
 }

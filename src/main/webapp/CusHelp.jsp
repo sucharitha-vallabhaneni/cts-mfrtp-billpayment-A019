@@ -9,19 +9,21 @@
 </head>
 <body>
 <div class="header">
-<h1>Welcome <span><%=session.getAttribute("username")%></span></h1>
+<h1>CUSTOMER -HELP SERVICE</h1>
+<a href="customerportal.jsp" class="a1">BACK</a>
 <ul class="a">
-<li><a href="beforehelp" class="a1">Help</a></li>
-<li><a href="/" class="a1">Logout</a></li>
+
+
 </ul>
+
 </div>
  <div class="formdata1">
 <div align="center">
-<h2>Report an issue here</h2>
+<h2 style="font-size:30px ;color:chocolate">Report an issue here</h2>
 <form action="afterhelp" method="post" modelAtribute="help">
 <table>
 <tr>
-<td>UserId:</td>
+<td >UserId:</td>
 <td><input type="text" name="userId" class="formcontrol"/>
 </td></tr>
 <tr>
@@ -38,7 +40,7 @@
 
 </form>
 <br><br>
-${message}
+<p2>${message}</p2>
 
 </div>
 </div> 

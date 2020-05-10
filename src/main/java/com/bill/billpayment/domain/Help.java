@@ -12,23 +12,31 @@ import javax.persistence.Table;
 
 public class Help {
 	@Id
-	@SequenceGenerator(name = "vendorseq",initialValue = 4010,allocationSize = 1,sequenceName = "HEL_SEQ")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator ="helpseq")
-	   
-	   private int userId;
+	@SequenceGenerator(name = "helpSequence",initialValue = 4010,allocationSize = 1,sequenceName = "HELP_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator ="helpSequence")
+	   private int serialno;
+	
+	@Column
+	private String userId;
 	   @Column
 	   private String issue;
 	   @Column 
 	   private String description;
 	   @Column
-	   private String status="new";
+	   private String status="not resolved";
+	   public int getSerialno() {
+			return serialno;
+		}
+		public void setSerialno(int serialno) {
+			this.serialno = serialno;
+		}
+		public String getUserId() {
+			return userId;
+		}
+		public void setUserId(String userId) {
+			this.userId = userId;
+		}
 	
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 	public String getIssue() {
 		return issue;
 	}
@@ -49,8 +57,9 @@ public class Help {
 	}
 	@Override
 	public String toString() {
-		return "Help [userId=" + userId + ", issue=" + issue + ", description=" + description + ", status=" + status + "]";
+		return "Help [serialno=" + serialno + ", userId=" + userId + ", issue=" + issue + ", description=" + description
+				+ ", status=" + status + "]";
 	}
-	   
+	
 
 }
