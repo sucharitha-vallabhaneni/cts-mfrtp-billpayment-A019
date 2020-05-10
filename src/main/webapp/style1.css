@@ -168,7 +168,7 @@ td
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: lightblue;
+  background-color: red;
 }
 
 .dropdown-content {

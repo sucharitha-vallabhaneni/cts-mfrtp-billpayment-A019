@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@
 <!-- Form  -->
 <div align="center">
 <div class="forms-data">
-<form:form  action="gverify" method="post" modelAttribute="vergpay" style="margin-top:50px;">
+<form:form  action="dthgverify" method="post" modelAttribute="vergpay" style="margin-top:50px;">
 <table>
 
 

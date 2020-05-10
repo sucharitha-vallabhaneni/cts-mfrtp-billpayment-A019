@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 
 import com.bill.billpayment.dao.Admindao;
 import com.bill.billpayment.dao.Dthbilldao;
+import com.bill.billpayment.dao.HelpDao;
 import com.bill.billpayment.dao.Vendordao;
 import com.bill.billpayment.dao.ebilldao;
 import com.bill.billpayment.domain.Aminlogin;
 import com.bill.billpayment.domain.Dth;
+import com.bill.billpayment.domain.Help;
 import com.bill.billpayment.domain.Vendor;
 import com.bill.billpayment.domain.electricity;
 @Service
@@ -28,6 +30,7 @@ private Vendordao vendordao;
 private ebilldao dao;
 @Autowired
 private Dthbilldao ddao;
+private HelpDao hdao;
 	@Override
 	public boolean login(Aminlogin adminlogin)
 	{
@@ -80,6 +83,12 @@ private Dthbilldao ddao;
 		return (List<Dth>) list;
 		
 	}
+	@Override
+	public List<Help> getallhelpList() {
+		// TODO Auto-generated method stub
+		return hdao.findAll();
+	}
 	
-			
-}
+
+
+}	

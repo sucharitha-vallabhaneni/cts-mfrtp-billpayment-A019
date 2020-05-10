@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bill.billpayment.domain.Aminlogin;
 import com.bill.billpayment.domain.Dth;
+import com.bill.billpayment.domain.Help;
 import com.bill.billpayment.domain.Vendor;
 import com.bill.billpayment.domain.electricity;
 
@@ -15,4 +16,5 @@ public boolean activate(String username);
 public boolean deactivate(String username);
 public List<electricity> getelectricbills();
 public List<Dth> getdthbills();
+List<Help> getallhelpList();
 }

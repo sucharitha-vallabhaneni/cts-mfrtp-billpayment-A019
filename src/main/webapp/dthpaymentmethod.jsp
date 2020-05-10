@@ -11,10 +11,10 @@
 
 </head>
 <body>
-<h1>BILL PAYMENT</h1>
+<h1>DTH-BILL PAYMENT</h1>
 <br>
-<form action="/getPaymetMode" method="post">
-<label>E-Bill Number :</label>
+<form action="getdthPaymetMode" method="post">
+<label>DTH-service Number :</label>
 &nbsp;
 <input type="text" name="bl" value="${billnumber }" readonly>
 <br>

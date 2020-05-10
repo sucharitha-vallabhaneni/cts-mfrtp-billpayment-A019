@@ -20,8 +20,7 @@ public class GpayserviceImp implements Gpayservice
 	private Gpaydao gdao;
 	@Autowired
 	private ebilldao edao;
-	@Autowired
-	private Dthbilldao ddao;
+	
 	@Override
 	public boolean verify(Gpay gpay) {
 		Optional<Gpay> al=gdao.findById(gpay.getContactNumber());
@@ -50,19 +49,6 @@ public class GpayserviceImp implements Gpayservice
 		}
 
 
-	@Override
-	public boolean dstatus(String billnumber) {
-		
-		Dth el=ddao.findByservicenumber(billnumber);
 	
-		String s=el.getTransactionstatus();
-		el.setTransactionstatus("success");
-		Dth e2=ddao.save(el);
-		if(e2.getTransactionstatus().equals(s)) 
-		{
-		return false;
-	}
-		return true;
-		}
 
 }

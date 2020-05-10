@@ -2,6 +2,7 @@ package com.bill.billpayment.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession; 
 
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +19,13 @@ import com.bill.billpayment.domain.Customerlogin;
 import com.bill.billpayment.domain.Dth;
 import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Vendor;
+
+
+
+import com.bill.billpayment.domain.Help;
+
+import com.bill.billpayment.domain.Vendor;
+
 import com.bill.billpayment.bo.Vendorservice;
 import com.bill.billpayment.domain.Vendorlogin;
 import com.bill.billpayment.domain.electricity;
@@ -27,7 +36,6 @@ public class VendorController
 {
 @Autowired
 private Vendorservice vs;
-
 @GetMapping("/vendor")
 public String Vendor(Model model)
 {
@@ -64,7 +72,10 @@ model.addAttribute("vendor",vl);
 	}
 	else if(res==2) 
 	{
-				return "vendorportal";
+			
+		session.setAttribute("vendor", vl.getUsername());
+		
+		return "vendorportal";
 		
 		
 	}
@@ -200,6 +211,19 @@ public String signup(@ModelAttribute("venreg") Vendor vendor,@ModelAttribute("se
 		
 		return "vendorlogin";
 		}
+	  
+}
+@GetMapping("/vendorupdate")
+public String vendorupdatepage(Model model,HttpSession session)
+{
+	String vendorid =(String) session.getAttribute("vendor");
+	
+	
+	
+	Vendor vendor = vs.getVendor(vendorid);
+	System.out.println(vendor);
+	model.addAttribute("edit",vendor);
+	return "edit";
 }
 @GetMapping(value="/forgotuserId")
 public String forgetId(Model model) {
@@ -297,4 +321,48 @@ return"ResetPassword";
  
  
 
+@PostMapping("/update")
+public String updateVendor(@ModelAttribute("edit") Vendor vendor,Model model)
+{
+ vs.saveOrUpdate(vendor);
+ return "vendorportal";
 }
+
+@RequestMapping("/update/{username}")
+public String edit(@PathVariable(name = "username") String username,Model model) {
+   
+    Vendor vendor = vs.getVendor(username);
+   model.addAttribute("vendor", vendor);
+     
+    return "edit";
+}
+@GetMapping(value="/beforehelp1")
+public String help(Model model)
+{
+	model.addAttribute("help",new Help());
+	return "VenHelp";
+}
+@PostMapping(value="/afterhelp1")
+public String help1(@ModelAttribute("help") Help h,BindingResult result,Model model) {
+	if(result.hasErrors())
+	{
+		return "VenHelp";
+	}
+	else
+	{
+		int status=vs.help(h);
+		if(status==1)
+		{
+			model.addAttribute("message","your issue is registered");
+			return "VenHelp";
+		}
+		else
+		{
+			model.addAttribute("message","Something went wrong");
+			return "failure";
+		}
+	}
+}
+
+}  
+

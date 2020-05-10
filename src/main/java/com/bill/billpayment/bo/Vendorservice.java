@@ -6,8 +6,16 @@ import java.util.List;
 import com.bill.billpayment.domain.Dth;
 import com.bill.billpayment.domain.Security;
 import com.bill.billpayment.domain.Vendor;
+import com.bill.billpayment.domain.Help;
+
+import com.bill.billpayment.domain.Vendor; 
 import com.bill.billpayment.domain.Vendorlogin;
 import com.bill.billpayment.domain.electricity;
+
+import java.util.List;
+
+
+
 
 public interface Vendorservice 
 {
@@ -21,4 +29,9 @@ public interface Vendorservice
 		  public List<electricity> getelectricbills();
 		  public List<Dth> getdthbills();
 
+	public List<Vendor> getallvendors();
+		public Vendor getVendor(String username);
+		public int updatevendor(Vendor vendor);
+		public void saveOrUpdate(Vendor vendor);
+		int help(Help h);
 }

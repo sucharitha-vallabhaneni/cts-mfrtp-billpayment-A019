@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.bill.billpayment.bo.Adminservice;
 import com.bill.billpayment.domain.Aminlogin;
 import com.bill.billpayment.domain.Dth;
+import com.bill.billpayment.domain.Help;
 import com.bill.billpayment.domain.Vendor;
 import com.bill.billpayment.domain.electricity;
 
@@ -158,6 +159,13 @@ public String generatefailreport1(Model model){
 }
 
 
+@GetMapping("/helpreq")
+public String showList(Model model,HttpSession session)
+{
+	List<Help> helpList=as.getallhelpList();
+	model.addAttribute("helplist", helpList);
+	return "HelpList";
+}
 @GetMapping("/back")
 public String returntohome(Model model)
 {

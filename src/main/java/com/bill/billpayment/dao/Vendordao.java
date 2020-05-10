@@ -2,6 +2,7 @@ package com.bill.billpayment.dao;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -11,7 +12,7 @@ import com.bill.billpayment.domain.Vendor;
 
 
 
-public interface Vendordao extends CrudRepository<Vendor, Integer> 
+public interface Vendordao extends JpaRepository<Vendor, Integer> 
 {
 	public Vendor findByUsername(String username);
  public List<Vendor> findAll();
@@ -24,4 +25,6 @@ public interface Vendordao extends CrudRepository<Vendor, Integer>
 	 @Query("select s from Vendor s where  s.username=:username ") 
 		  public  Vendor getVendor(@Param("username")String userId);
 	 
+//public int update();
+
 } 

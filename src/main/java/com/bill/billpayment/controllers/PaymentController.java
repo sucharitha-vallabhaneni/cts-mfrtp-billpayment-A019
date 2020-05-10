@@ -18,12 +18,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.bill.billpayment.bo.Creditservice;
 import com.bill.billpayment.bo.Customerservice;
 import com.bill.billpayment.bo.Dthbillservice;
+import com.bill.billpayment.bo.Dthcreditservice;
+import com.bill.billpayment.bo.Dthgpayservice;
 import com.bill.billpayment.bo.Gpayservice;
 import com.bill.billpayment.bo.ebillservice;
 
 import com.bill.billpayment.domain.Credit;
 import com.bill.billpayment.domain.Customer;
 import com.bill.billpayment.domain.Dth;
+import com.bill.billpayment.domain.Dthcredit;
+import com.bill.billpayment.domain.Dthgpay;
 import com.bill.billpayment.domain.Gpay;
 import com.bill.billpayment.domain.electricity;
 
@@ -40,49 +44,18 @@ public class PaymentController {
 	private Gpayservice gpays;
 	@Autowired
 	private Dthbillservice dths;
+	@Autowired
+	private Dthcreditservice dthcs;
+	@Autowired
+	private Dthgpayservice dthgs;
 	//for redirecting to bill payment home page
 		@GetMapping("billpayhome")
 		public String billhomepage(Model model)
 		{
 			return "billpaymenthome";
 		}
-		//dth home page
-		@GetMapping("dth")
-		public String dthpage(Model model)
-		{
-			Dth d=new Dth();
-			model.addAttribute("dth",d);
-			return "DTH";
-		}
-		//dth bill saving
-		@PostMapping("dthsave")
-		public String savedthbill(@Valid @ModelAttribute("dth")Dth d,BindingResult result,Model model,HttpSession session)
-		{
-			d.setTransactionstatus("failure");
-			if(result.hasErrors())
-			{
-				return "DTH";
-			}
-			else
-			{
-				String custusername=(String) session.getAttribute("custusername");
-				Customer c = cs.getCustomer(custusername);
-				d.setCustomeruname(c);
-				
-
-						int res = dths.savebill(d);
-			
-			 if(res==1)
-			{
-				
-			     model.addAttribute("billnumber", d.getServicenumber());
-				return "paymentmethod";
-			}
-			return "paymentmethod";
-			}
 		
-			}
-			
+		
 		
 		//electricity home page
 		@GetMapping("electricity")
@@ -117,13 +90,13 @@ public class PaymentController {
 			{
 				
 			     model.addAttribute("billnumber", e.getBillnumber());
-				return "paymentmethod";
+				return "electpaymentmethod";
 			}
-			return "paymentmethod";
+			return "electpaymentmethod";
 			}
 		
 		}
-		
+		//elec pay mode
 		@PostMapping("getPaymetMode")
 		public String getPaymentmethod(Model model,@RequestParam("bl")String billnumber,RedirectAttributes redirects,@RequestParam("pmethod") String mode)
 		{
@@ -134,7 +107,7 @@ public class PaymentController {
 		
 			return "redirect:pay";
 			}
-			else if(model.equals("gpay"))
+			else if(mode.equals("gpay"))
 			{
 				redirects.addFlashAttribute("billno", billnumber);
 				
@@ -170,7 +143,8 @@ public class PaymentController {
 				{
 					
 					session.setAttribute("user", gpay.getContactNumber());
-					gpays.dstatus(billnumber);
+				gpays.status(billnumber);
+					
 				 return "success";
 				 
 						
@@ -210,6 +184,7 @@ public class PaymentController {
 				{
 					
 					session.setAttribute("user", credit.getCardnumber());
+				
 					credits.status(billnumber);
 				 return "success";
 				 
@@ -233,6 +208,145 @@ public class PaymentController {
 		
 			return "ebillhistory";
 		}
+		//dth home page
+				@GetMapping("dth")
+				public String dthpage(Model model)
+				{
+					Dth d=new Dth();
+					model.addAttribute("dth",d);
+					return "DTH";
+				}
+				//dth bill saving
+				@PostMapping("dthsave")
+				public String savedthbill(@Valid @ModelAttribute("dth")Dth d,BindingResult result,Model model,HttpSession session)
+				{
+					d.setTransactionstatus("failure");
+					if(result.hasErrors())
+					{
+						return "DTH";
+					}
+					else
+					{
+						String custusername=(String) session.getAttribute("custusername");
+						Customer c = cs.getCustomer(custusername);
+						d.setCustomeruname(c);
+						
+
+								int res = dths.savebill(d);
+					
+					 if(res==1)
+					{
+						
+					     model.addAttribute("billnumber", d.getServicenumber());
+						return "dthpaymentmethod";
+					}
+					return "dthpaymentmethod";
+					}
+				
+					}
+				//dth payment method
+				
+				@PostMapping("getdthPaymetMode")
+				public String getdthPaymentmethod(Model model,@RequestParam("bl")String billnumber,RedirectAttributes redirects,@RequestParam("pmethod") String mode)
+				{
+					
+					if(mode.equals("credit"))
+					{
+					redirects.addFlashAttribute("billno", billnumber);
+				
+					return "redirect:dthcpay";
+					}
+					else if(mode.equals("gpay"))
+					{
+						redirects.addFlashAttribute("billno", billnumber);
+						
+						return "redirect:dthgpay";
+					}
+					else
+					{
+		             redirects.addFlashAttribute("billno", billnumber);
+						
+						return "redirect:dthgpay";
+					}
+				}
+				//dthgpay page
+				@GetMapping("dthgpay")
+				public String dthgooglePayMode(Model model)
+				{
+					Dthgpay gp = new Dthgpay();
+					model.addAttribute("vergpay", gp);
+					return "dthgpay";
+				}
+				//dthgpay verification
+				@PostMapping("dthgverify")
+				public String dthgpayverify(@Valid @ModelAttribute("vergpay") Dthgpay gpay,Model model,HttpSession session,BindingResult result,@RequestParam("bil") String billnumber)
+				{
+					if(result.hasErrors())	
+					{
+						return "dthpay";
+					}
+					else
+					{
+						boolean status=dthgs.verify(gpay);
+						if(status)
+						{
+							
+							session.setAttribute("user", gpay.getContactNumber());
+						dthgs.dstatus(billnumber);
+							
+						 return "success";
+						 
+								
+						}
+					
+						else
+						{
+						model.addAttribute("message", "Invalid ");
+							return "Gpay";
+						}
+
+				}
+				}	
+				//dthcredit page
+				@GetMapping("dthcpay")
+				public String dthpaypagecred(Model model)
+				{
+					Dthcredit credit=new Dthcredit();
+					model.addAttribute("verifypay",credit);
+					return "credit";
+				}
+				
+				//credit verification
+				@PostMapping("dthcverify")
+				public String dthcreditverify(@Valid @ModelAttribute("verifypay") Dthcredit credit,Model model,HttpSession session,BindingResult result,@RequestParam("bil") String billnumber)
+				{
+					
+					if(result.hasErrors())	
+					{
+						return "credit";
+					}
+					else
+					{
+						boolean status=dthcs.verify(credit);
+						if(status)
+						{
+							
+							session.setAttribute("user", credit.getCardnumber());
+						
+							dthcs.dthstatus(billnumber);
+						 return "success";
+						 
+								
+						}
+					
+						else
+						{
+						model.addAttribute("message", "Invalid ");
+							return "credit";
+						}
+
+				}
+				}	
 		//dth bill history
 		@GetMapping("dthbillhistory")
 		public String ddisplay(HttpSession session,Model model)
